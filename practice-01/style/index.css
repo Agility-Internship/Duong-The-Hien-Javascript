@@ -102,10 +102,12 @@ html {
 .form-check {
   text-align: left;
   display: flex;
-  align-items: center;
 }
 
-
+.form-text {
+  padding-left: 5px;
+}
+  
 .form-message {
   font-size: var(--font-size-base);
   line-height: 1.6rem;
