@@ -1,7 +1,7 @@
 {
   "name": "practice-01",
   "version": "1.0.0",
-  "description": "This is a javascript practice-01",
+  "description": "This is the practice-01 of the javascript training plan",
   "main": "index.html",
   "scripts": {
     "start": "serve ."
