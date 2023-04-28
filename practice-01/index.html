@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="./style/index.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/index.css" />
 </head>
 
 <body>
@@ -16,24 +17,24 @@
             <!-- fullName -->
             <div class="form-group">
                 <label for="fullname" class="form-label">Name*</label>
-                <input id="fullname" name="fullname" type="text" placeholder="Enter your name" class="form-control">
+                <input id="fullname" name="fullname" type="text" placeholder="Enter your name" class="form-control" />
                 <span class="form-message"></span>
             </div>
             <!-- Email -->
             <div class="form-group">
                 <label for="email" class="form-label">Email*</label>
-                <input id="email" name="email" type="text" placeholder="Enter your email" class="form-control">
+                <input id="email" name="email" type="text" placeholder="Enter your email" class="form-control" />
                 <span class="form-message">Error...</span>
             </div>
             <!-- Age -->
             <div class="form-group">
                 <label for="age" class="form-label">Age*</label>
-                <input id="age" name="age" type="number" placeholder="Enter your age" class="form-control">
+                <input id="age" name="age" type="number" placeholder="Enter your age" class="form-control" />
                 <span class="form-message"></span>
             </div>
             <!-- Select describes -->
             <div class="form-group">
-                <label for="describes" class="form-label">Which option best describes you ? </label>
+                <label for="describes" class="form-label">Which option best describes you ?</label>
                 <select name="describes" class="form-control">
                     <option value="ST">Student</option>
                     <option value="IT">Intern</option>
@@ -43,42 +44,65 @@
                 <span class="form-message"></span>
             </div>
             <!-- Yes/No question -->
-            <div class="form-group ">
+            <div class="form-group">
                 <label id="question-radio" class="form-label">Would you recommend GeeksforGeeks to a friend?</label>
                 <ul class="form-list">
-                    <li class="form-check"><input name="answer" type="radio" value="Yes"><span class="form-text">Yes</span></li>
-                    <li class="form-check"><input name="answer" type="radio" value="No"><span class="form-text">No</span></li>
-                    <li class="form-check"><input name="answer" type="radio" value="Maybe"><span class="form-text">Maybe</span></li>
+                    <li class="form-check">
+                        <input name="answer" type="radio" value="Yes" /><span class="form-text">Yes</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="radio" value="No" /><span class="form-text">No</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="radio" value="Maybe" /><span class="form-text">Maybe</span>
+                    </li>
                 </ul>
                 <span class="form-message"></span>
             </div>
             <!-- Checkbox -->
-            <div class="form-group ">
-                <label id="question-checkbox" class="form-label">Languages and Frameworks known (Check all that apply)
-                </label>
+            <div class="form-group">
+                <label id="question-checkbox" class="form-label">Languages and Frameworks known (Check all that
+                    apply)</label>
                 <ul class="form-list">
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">C</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">C++</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">C#</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">Java</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">Python</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">JavaScript</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">Angular</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">Angular</span></li>
-                    <li class="form-check"><input name="answer" type="checkbox"><span class="form-text">Spring</span></li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">C</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">C++</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">C#</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">Java</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">Python</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">JavaScript</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">Angular</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">Angular</span>
+                    </li>
+                    <li class="form-check">
+                        <input name="answer" type="checkbox" /><span class="form-text">Spring</span>
+                    </li>
                 </ul>
                 <span class="form-message"></span>
             </div>
             <!-- description -->
             <div class="form-group">
                 <label for="desc" class="form-label">Any comments or suggestions (Max 500 characters)</label>
-                <textarea name="desc" id="desc"  rows="5"></textarea>
+                <textarea name="desc" id="desc" rows="5"></textarea>
                 <span class="form-message"></span>
             </div>
             <!-- Button -->
             <button class="form-submit">Submit</button>
         </form>
-
     </main>
 </body>
 
