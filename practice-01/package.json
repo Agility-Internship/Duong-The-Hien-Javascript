@@ -1,7 +1,7 @@
 {
   "name": "practice-01",
   "version": "1.0.0",
-  "description": "This is a javascript practice-01",
+  "description": "Build a survey form and check the error to survey users.",
   "main": "index.html",
   "scripts": {
     "start": "serve ."
