@@ -107,6 +107,21 @@
             <button type="submit" class="form-submit">Submit</button>
         </form>
     </main>
+    <!-- end Main -->
+
+
+
+
+    <!-- javascript -->
+    <script src="./js/validation.js"></script>
+    <script>
+        Validation({
+            form : '#form-survey',
+            rules : [
+                Validation.isRequired('#fullname'),
+            ]
+        })
+    </script>
 </body>
 
 </html>
