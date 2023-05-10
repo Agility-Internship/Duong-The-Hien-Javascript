@@ -33,11 +33,8 @@ function Validation(option) {
         } else {
             errorDisplay.innerText = '';
             inputElement.parentElement.classList.remove('invalid')
-
         }
     }
-
-
 }
 
 
