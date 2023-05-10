@@ -13,7 +13,7 @@
 
 <body>
     <main class="main">
-        <form method="POST" class="form">
+        <form method="POST" class="form" id="form-survey">
             <!-- FullName -->
             <div class="form-group">
                 <label for="fullname" class="form-label">Name*</label>
@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="email" class="form-label">Email*</label>
                 <input id="email" name="email" type="text" placeholder="Enter your email" class="form-control" />
-                <span class="form-message">Error...</span>
+                <span class="form-message"></span>
             </div>
             <!-- Age -->
             <div class="form-group">
@@ -65,31 +65,31 @@
                     apply)</label>
                 <ul class="form-list">
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">C</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">C</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">C++</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">C++</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">C#</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">C#</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">Java</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">Java</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">Python</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">Python</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">JavaScript</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">JavaScript</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">Angular</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">Angular</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">Angular</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">Angular</span>
                     </li>
                     <li class="form-check">
-                        <input name="answer" type="checkbox" /><span class="form-text">Spring</span>
+                        <input name="languages" type="checkbox" /><span class="form-text">Spring</span>
                     </li>
                 </ul>
                 <span class="form-message"></span>
@@ -104,6 +104,18 @@
             <button type="submit" class="form-submit">Submit</button>
         </form>
     </main>
+
+    <script src="./js/validation.js"></script>
+    <script>
+        Validation({
+            form : '#form-survey',
+            rules : [
+                Validation.isRequired('#fullname'),
+                Validation.isEmail('#email'),
+                Validation.isAge('#age'),
+            ]
+        })
+    </script>
 </body>
 
 </html>
