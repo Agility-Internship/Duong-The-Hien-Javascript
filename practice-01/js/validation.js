@@ -19,6 +19,12 @@ function Validation(option) {
         const errorMessage = rule.test(inputElement.value);
         const errorDisplay = inputElement.parentElement.querySelector('.form-message')
 
+        // handle : Hide message err when user is typing
+        inputElement.oninput = function () {
+            errorDisplay.innerText = '';
+            inputElement.parentElement.classList.remove('invalid')
+        }
+
         // Display the message line when validation is wrong
         if (errorMessage) {
             errorDisplay.innerText = errorMessage;
