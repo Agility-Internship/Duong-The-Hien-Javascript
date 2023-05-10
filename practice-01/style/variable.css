@@ -5,13 +5,12 @@
   --font-family: "Satoshi", sans-serif;
 
   /* -------------color-------------------- */
-  /* https://colornamer.robertcooper.me/  */
   --primary: #05c46b;
   --success : #1dbfaf;
   --danger : #f33a58;
   --white : #ffffff;
   --black : #000000;
-  --gray : #0000006e;
+  --gray : #3534346e;
   /* -------------font-weight-------------- */
 
   --font-weight-small: 300;
