@@ -61,17 +61,12 @@ function checkEmailError(input) {
 // Check the name has characters
 function checkCharacter(input) {
     const regexCharacter = /[ ^a-z-A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
-    input.value = input.value.trim();
-
-    let isCharacterError = !regexCharacter.test(input.value);
 
     if (regexCharacter.test(input.value)) {
         showSuccess(input);
     } else {
         showError(input, 'Wrong input');
     }
-
-    return isCharacterError;
 }
 // Check tra limit of number
 function checkLimitNumberError(input, min, max) {
@@ -93,7 +88,7 @@ formElement.addEventListener('submit', function (e) {
     e.preventDefault()
 
     let isEmtyError = checkEmtyError([userName, isAge, isEmail]);
-    let isEmailError = checkEmailError(isEmail);
     let isCharacterError = checkCharacter(userName);
+    let isEmailError = checkEmailError(isEmail);
     let isLimitError = checkLimitNumberError(isAge, 5, 150);
 });
