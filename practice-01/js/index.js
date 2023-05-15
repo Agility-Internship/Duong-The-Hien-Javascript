@@ -29,15 +29,13 @@ function showSuccess(input) {
 function checkEmtyError(listInput) {
     // Check if the user has entered or not
     // Not > report an error
-    let isValid = false;
+    let isValid;
     listInput.forEach(input => {
         input.value = input.value.trim();
-
         if (!input.value) {
-            isValid = true;
-            showError(input, 'cannot be left blank');
+            isValid = false;
         } else {
-            showSuccess(input);
+            isValid = true;
         }
     });
     return isValid;
@@ -52,9 +50,9 @@ function checkEmailError(input) {
     let isEmailError = !regexEmail.test(input.value);
 
     if (regexEmail.test(input.value)) {
-        showSuccess(input);
+        isEmailError = true;
     } else {
-        showError(input, 'Email Invalid')
+        isEmailError = false;
     }
     return isEmailError;
 }
@@ -65,9 +63,9 @@ function checkCharacter(input) {
     const regexCharacter = /[ ^a-z-A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
 
     if (regexCharacter.test(input.value)) {
-        showSuccess(input);
+        return true;
     } else {
-        showError(input, 'Wrong input');
+        return false;
     }
 }
 /**
@@ -76,16 +74,12 @@ function checkCharacter(input) {
 function checkLimitNumberError(input, min, max) {
 
     if (input.value < min) {
-        showError(input, `Number must be larger than ${min}`);
-        return true;
+        return false;
     }
     if (input.value > max) {
-        showError(input, `Number must be small than ${max}`);
-        return true;
+        return false;
     }
-
-    showSuccess(input);
-    return false;
+    return true;
 }
 /**
  * Event submit
@@ -93,7 +87,7 @@ function checkLimitNumberError(input, min, max) {
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    let isEmtyError = checkEmtyError([nameId, ageId, emailId]);
+    let isValid = checkEmtyError([nameId, ageId, emailId]);
     let isCharacterError = checkCharacter(nameId);
     let isEmailError = checkEmailError(emailId);
     let isLimitError = checkLimitNumberError(ageId, 5, 150);
