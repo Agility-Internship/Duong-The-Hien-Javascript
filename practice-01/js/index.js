@@ -29,18 +29,18 @@ function showSuccess(input) {
 function checkEmtyError(listInput) {
     // Check if the user has entered or not
     // Not > report an error
-    let isEmtyError = false;
+    let isValid = false;
     listInput.forEach(input => {
         input.value = input.value.trim();
 
         if (!input.value) {
-            isEmtyError = true;
+            isValid = true;
             showError(input, 'cannot be left blank');
         } else {
             showSuccess(input);
         }
     });
-    return isEmtyError;
+    return isValid;
 }
 /**
  * Validation for Email
