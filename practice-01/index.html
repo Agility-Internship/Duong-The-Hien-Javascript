@@ -13,7 +13,7 @@
 
 <body>
     <main class="main">
-        <form method="POST" class="form">
+        <form method="POST" class="form" id="form-survey">
             <!-- FullName -->
             <div class="form-group">
                 <label for="fullname" class="form-label">Name*</label>
@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="email" class="form-label">Email*</label>
                 <input id="email" name="email" type="text" placeholder="Enter your email" class="form-control" />
-                <span class="form-message">Error...</span>
+                <span class="form-message"></span>
             </div>
             <!-- Age -->
             <div class="form-group">
@@ -107,6 +107,10 @@
             <button type="submit" class="form-submit">Submit</button>
         </form>
     </main>
+    <!-- end Main -->
+
+    <!-- javascript -->
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
