@@ -1,7 +1,7 @@
-const formElement = document.querySelector('#form-survey');
-const userName = document.querySelector('#fullname');
-const isEmail = document.querySelector('#email');
-const isAge = document.querySelector('#age');
+const formId = document.querySelector('#form-survey');
+const nameId = document.querySelector('#fullname');
+const emailId = document.querySelector('#email');
+const ageId = document.querySelector('#age');
 
 /**
  * Show a message to the user when submitting
@@ -90,11 +90,11 @@ function checkLimitNumberError(input, min, max) {
 /**
  * Event submit
  */
-formElement.addEventListener('submit', function (e) {
+formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    let isEmtyError = checkEmtyError([userName, isAge, isEmail]);
-    let isCharacterError = checkCharacter(userName);
-    let isEmailError = checkEmailError(isEmail);
-    let isLimitError = checkLimitNumberError(isAge, 5, 150);
+    let isEmtyError = checkEmtyError([nameId, ageId, emailId]);
+    let isCharacterError = checkCharacter(nameId);
+    let isEmailError = checkEmailError(emailId);
+    let isLimitError = checkLimitNumberError(ageId, 5, 150);
 });
