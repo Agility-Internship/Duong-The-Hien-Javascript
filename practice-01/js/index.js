@@ -41,7 +41,7 @@ function checkEmtyError(listInput) {
     return isValid;
 }
 function validationEmty(isValid, listInput) {
-
+    // display error when user does not enter form
     listInput.forEach(input => {
         input.value = input.value.trim();
 
@@ -56,6 +56,8 @@ function validationEmty(isValid, listInput) {
  * Validation for Email
  */
 function checkEmailError(input) {
+    //Check and return the result when the user enters it, if it's true, it returns true, if it's not, it returns false
+    // regexEmail = must have @ character
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
 
@@ -69,6 +71,7 @@ function checkEmailError(input) {
     return isEmailError;
 }
 function validationEmail(isEmailError, input) {
+    // Get the result returned from isEmailError , if true then showSucces(), false showError with message
     if (isEmailError == false) {
         showError(input, 'Email Invalid');
     } else {
@@ -79,6 +82,8 @@ function validationEmail(isEmailError, input) {
  * Validation for charcaters
  */
 function checkCharacter(input) {
+    // Check if the input the user entered is empty or not
+    // Allow names with Vietnamese accents
     const regexCharacter = /[ ^a-z-A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
 
     if (regexCharacter.test(input.value)) {
@@ -88,6 +93,7 @@ function checkCharacter(input) {
     }
 }
 function validationFullName(isCharacterError, input) {
+    // Get the result returned from checkCharacter , if true then showSuccess(), false showError with message
     if (isCharacterError == false) {
         showError(input, 'Name cannot contain characters')
     } else {
@@ -98,7 +104,8 @@ function validationFullName(isCharacterError, input) {
  * Validation for limit of number
  */
 function checkLimitNumberError(input, min, max) {
-
+    // Add 2 arguments min and max , check people condition limit users when entering form
+    // Greater than or less than the argument, both return false
     if (input.value < min) {
         return false;
     }
@@ -108,7 +115,7 @@ function checkLimitNumberError(input, min, max) {
     return true;
 }
 function validationAge(isLimitError, input, min, max) {
-    console.log('hello')
+    // Get the result returned from checkLimitNumberError ,false and meet the conditions showError with message
     if (isLimitError == false && input.value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
