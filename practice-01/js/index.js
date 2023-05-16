@@ -29,7 +29,7 @@ function showSuccess(input) {
 function checkEmtyError(listInput) {
     // Check if the user has entered or not
     // Not > report an error
-    let isValid;
+    let isValid = true;
     listInput.forEach(input => {
         input.value = input.value.trim();
         if (!input.value) {
@@ -39,6 +39,18 @@ function checkEmtyError(listInput) {
         }
     });
     return isValid;
+}
+function validationEmty(isValid, listInput) {
+
+    listInput.forEach(input => {
+        input.value = input.value.trim();
+
+        if (isValid == false) {
+            showError(input, 'cannot be left blank')
+        } else {
+            showSuccess(input);
+        }
+    })
 }
 /**
  * Validation for Email
@@ -56,6 +68,13 @@ function checkEmailError(input) {
     }
     return isEmailError;
 }
+function validationEmail(isEmailError, input) {
+    if (isEmailError == false) {
+        showError(input, 'Email Invalid');
+    } else {
+        showSuccess(input);
+    }
+}
 /**
  * Validation for charcaters
  */
@@ -66,6 +85,13 @@ function checkCharacter(input) {
         return true;
     } else {
         return false;
+    }
+}
+function validationFullName(isCharacterError, input) {
+    if (isCharacterError == false) {
+        showError(input, 'Name cannot contain characters')
+    } else {
+        showSuccess(input)
     }
 }
 /**
@@ -81,14 +107,28 @@ function checkLimitNumberError(input, min, max) {
     }
     return true;
 }
+function validationAge(isLimitError, input, min, max) {
+    console.log('hello')
+    if (isLimitError == false && input.value < min) {
+        showError(input, `Number must be larger than ${min}`);
+    }
+    if (isLimitError == false && input.value > max) {
+        showError(input, `Number must be small than ${max}`);
+    }
+}
+
 /**
  * Event submit
  */
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    let isValid = checkEmtyError([nameId, ageId, emailId]);
-    let isCharacterError = checkCharacter(nameId);
+    let isValid = checkEmtyError([nameId, emailId, ageId]);
+    validationEmty(isValid, [nameId, emailId, ageId]);
     let isEmailError = checkEmailError(emailId);
+    validationEmail(isEmailError, emailId);
+    let isCharacterError = checkCharacter(nameId);
+    validationFullName(isCharacterError, nameId);
     let isLimitError = checkLimitNumberError(ageId, 5, 150);
+    validationAge(isLimitError, ageId, 5, 150);
 });
