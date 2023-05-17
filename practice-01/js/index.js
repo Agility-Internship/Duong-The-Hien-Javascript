@@ -4,21 +4,24 @@ const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
 
 /**
- * Show a message to the user when submitting
+ * If false , display error message and add invalid class.
  */
+
 function showError(input, message) {
 
-    // If false error message and invalid CSS
     let errorDisplay = input.parentElement;
     let errorMessage = errorDisplay.querySelector('.form-message');
 
     errorDisplay.classList.add('invalid');
     errorMessage.innerText = message;
-
 }
+
+/**
+ * If true, there's no message and remove invalid class.
+ */
+
 function showSuccess(input) {
 
-    // If it's true, there's no message
     let errorDisplay = input.parentElement;
     let errorMessage = errorDisplay.querySelector('.form-message');
 
@@ -28,11 +31,11 @@ function showSuccess(input) {
 }
 
 /**
- * Check blanks and pass arguments back to the function that displays the message
+ * Check for blank from arguments by loop in array, return true or false
  */
+
 function checkEmtyError(listInput) {
 
-    // Return the result of check
     let isValid = true;
     listInput.forEach(input => {
         input.value = input.value.trim();
@@ -45,9 +48,13 @@ function checkEmtyError(listInput) {
     return isValid;
 
 }
+
+/**
+ * Reminder when user has not filled in the form
+ */
+
 function validationEmty(isValid, listInput) {
 
-    // Pass arguments based on the returned result
     listInput.forEach(input => {
         input.value = input.value.trim();
 
@@ -59,12 +66,13 @@ function validationEmty(isValid, listInput) {
     })
 
 }
+
 /**
- * Check email syntax and pass arguments back to the function that displays the message
+ * Check the email syntax the user entered, return true or false
  */
+
 function checkEmailError(input) {
 
-    // Return the result of check
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
 
@@ -78,9 +86,13 @@ function checkEmailError(input) {
     return isEmailError;
 
 }
+
+/**
+ * Display the result message for the content the user filled in the Email Form
+ */
+
 function validationEmail(isEmailError, input) {
 
-    // Pass arguments based on the returned result
     if (isEmailError == false) {
         showError(input, 'Email Invalid');
     } else {
@@ -88,12 +100,13 @@ function validationEmail(isEmailError, input) {
     }
 
 }
+
 /**
- * Check character entered and pass arguments back to the function that displays the message
+ * Check if the content includes special characters, return true or false
  */
+
 function checkCharacter(input) {
 
-    // Return the result of check
     const regexCharacter = /[ ^a-z-A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
 
     if (regexCharacter.test(input.value)) {
@@ -103,9 +116,13 @@ function checkCharacter(input) {
     }
 
 }
+
+/**
+ * Displays the result of checking special characters entered in Name form
+ */
+
 function validationFullName(isCharacterError, input) {
 
-    // Pass arguments based on the returned result
     if (isCharacterError == false) {
         showError(input, 'Name cannot contain characters')
     } else {
@@ -113,12 +130,13 @@ function validationFullName(isCharacterError, input) {
     }
 
 }
+
 /**
- * Check the limit of the number and pass arguments back to the function that displays the message
+ * Check the limit of numbers entered, return true or false
  */
+
 function checkLimitNumberError(input, min, max) {
 
-    // Return the result of check
     if (input.value < min) {
         return false;
     }
@@ -128,9 +146,13 @@ function checkLimitNumberError(input, min, max) {
     return true;
 
 }
+
+/**
+ * Displays age check results entered by user in Age form
+ */
+
 function validationAge(isLimitError, input, min, max) {
 
-    // Pass arguments based on the returned result
     if (isLimitError == false && input.value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
@@ -143,6 +165,7 @@ function validationAge(isLimitError, input, min, max) {
 /**
  * Event submit
  */
+
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
