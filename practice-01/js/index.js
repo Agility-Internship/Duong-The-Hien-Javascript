@@ -4,7 +4,8 @@ const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
 
 /**
- * If false , display error message and add invalid class.
+ * Display error message and add invalid class to display error status
+ * input : Results from functional validations
  */
 
 function showError(input, message) {
@@ -17,7 +18,8 @@ function showError(input, message) {
 }
 
 /**
- * If true, there's no message and remove invalid class.
+ * Change display of error messages to succes and remove invalid class
+ * input : Results from functional validations
  */
 
 function showSuccess(input) {
@@ -31,7 +33,9 @@ function showSuccess(input) {
 }
 
 /**
- * Check for blank from arguments by loop in array, return true or false
+ * Check the form's status is empty or filled in information
+ * input : the elements of the arguments
+ * return : isValid
  */
 
 function checkEmtyError(listInput) {
@@ -50,7 +54,9 @@ function checkEmtyError(listInput) {
 }
 
 /**
- * Reminder when user has not filled in the form
+ * Show information to users when they forget to fill in the form
+ * input : isValid , The element list of the arguments
+ * return : the elements of the arguments, message
  */
 
 function validationEmty(isValid, listInput) {
@@ -68,7 +74,9 @@ function validationEmty(isValid, listInput) {
 }
 
 /**
- * Check the email syntax the user entered, return true or false
+ * Check the syntax mail which user fills in
+ * input : Element of the argument
+ * return : isEmailError
  */
 
 function checkEmailError(input) {
@@ -88,7 +96,9 @@ function checkEmailError(input) {
 }
 
 /**
- * Display the result message for the content the user filled in the Email Form
+ * Display an error message when the user enters the wrong email
+ * input : isEmailError , Element of email ID
+ * return : Element of email ID , message
  */
 
 function validationEmail(isEmailError, input) {
@@ -102,7 +112,9 @@ function validationEmail(isEmailError, input) {
 }
 
 /**
- * Check if the content includes special characters, return true or false
+ * Check special characters
+ * input : Element of the argument
+ * return : True / Fales
  */
 
 function checkCharacter(input) {
@@ -118,7 +130,9 @@ function checkCharacter(input) {
 }
 
 /**
- * Displays the result of checking special characters entered in Name form
+ * Display a message to the user when the content contains special characters
+ * input : true || false , Element of the argument
+ * return : Element of the argument, message
  */
 
 function validationFullName(isCharacterError, input) {
@@ -132,7 +146,9 @@ function validationFullName(isCharacterError, input) {
 }
 
 /**
- * Check the limit of numbers entered, return true or false
+ * Check if the value of the number meets the requirements or not
+ * input : Element of the argument , min , max
+ * return : True / Fales
  */
 
 function checkLimitNumberError(input, min, max) {
@@ -148,7 +164,9 @@ function checkLimitNumberError(input, min, max) {
 }
 
 /**
- * Displays age check results entered by user in Age form
+ * Display a message when the user enters the wrong number
+ * input : true || false , Element of the argument
+ * return : Element of the argument, message , min || max
  */
 
 function validationAge(isLimitError, input, min, max) {
