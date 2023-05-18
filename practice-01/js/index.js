@@ -4,9 +4,9 @@ const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
 
 /**
- * Display error message and add invalid class to display error status
- * @param  input  : Results from functional validations
- * @param  message: Results from functional validations
+ * display error message and add invalid class to display error status
+ * @param  input  : results from functional validations
+ * @param  message: results from functional validations
  */
 function showError(input, message) {
     let errorDisplay = input.parentElement;
@@ -17,8 +17,8 @@ function showError(input, message) {
 }
 
 /**
- * Change display of error messages to success and remove invalid class
- * @param input : Results from functional validations
+ * change display of error messages to success and remove invalid class
+ * @param input : results from functional validations
  */
 function showSuccess(input) {
     let errorDisplay = input.parentElement;
@@ -29,7 +29,7 @@ function showSuccess(input) {
 }
 
 /**
- * Check the form's status is empty or filled in information
+ * check the form's status is empty or filled in information
  * @param listInput : the elements of the arguments
  * @returns {boolean} isValid
  */
@@ -47,9 +47,9 @@ function checkEmtyError(listInput) {
 }
 
 /**
- * Display information to users when they forget to fill in the form
- * @param isValid : True || False
- * @param listInput : The element list of the arguments
+ * display information to users when they forget to fill in the form
+ * @param isValid : true || false
+ * @param listInput : the element list of the arguments
  */
 function validationEmty(isValid, listInput) {
     listInput.forEach(input => {
@@ -64,8 +64,8 @@ function validationEmty(isValid, listInput) {
 }
 
 /**
- * Check the syntax mail which user fills in
- * @param input : Element of the argument
+ * check the syntax mail which user fills in
+ * @param input : element of the argument
  * @returns {boolean} : isEmailError
  */
 function checkEmailError(input) {
@@ -82,9 +82,9 @@ function checkEmailError(input) {
 }
 
 /**
- * Display an error message when the user enters the wrong email
- * @param isEmailError : True || False
- * @param input : Element of email ID
+ * display an error message when the user enters the wrong email
+ * @param isEmailError : true || false
+ * @param input : element of email ID
  */
 function validationEmail(isEmailError, input) {
     if (isEmailError == false) {
@@ -95,8 +95,8 @@ function validationEmail(isEmailError, input) {
 }
 
 /**
- * Check special characters
- * @param input : Element of the argument
+ * check special characters
+ * @param input : element of the argument
  * @returns {boolean}
  */
 function checkCharacter(input) {
@@ -110,9 +110,9 @@ function checkCharacter(input) {
 }
 
 /**
- * Display a message to the user when the content contains special characters
- * @param isCharacterError : True || False
- * @param input : Element of the argument
+ * display a message to the user when the content contains special characters
+ * @param isCharacterError : true || false
+ * @param input : element of the argument
  */
 function validationFullName(isCharacterError, input) {
     if (isCharacterError == false) {
@@ -123,10 +123,10 @@ function validationFullName(isCharacterError, input) {
 }
 
 /**
- * Check if the value of the number meets the requirements or not
- * @param input : Element of the argument
- * @param min : Minimum value that the user passed in
- * @param max : Maximum value that the user passed in
+ * check if the value of the number meets the requirements or not
+ * @param input : element of the argument
+ * @param min : minimum value that the user passed in
+ * @param max : maximum value that the user passed in
  * @returns {boolean}
  */
 function checkLimitNumberError(input, min, max) {
@@ -140,11 +140,11 @@ function checkLimitNumberError(input, min, max) {
 }
 
 /**
- * Display a message when the user enters the wrong number
- * @param isLimitError :True || False
- * @param input :Element of the argument
- * @param min : Minimum value that the user passed in
- * @param max : Maximum value that the user passed in
+ * display a message when the user enters the wrong number
+ * @param isLimitError :true || false
+ * @param input :element of the argument
+ * @param min : minimum value that the user passed in
+ * @param max : maximum value that the user passed in
  */
 function validationAge(isLimitError, input, min, max) {
     if (isLimitError == false && input.value < min) {
@@ -156,7 +156,7 @@ function validationAge(isLimitError, input, min, max) {
 }
 
 /**
- * Event submit
+ * event submit
  */
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
