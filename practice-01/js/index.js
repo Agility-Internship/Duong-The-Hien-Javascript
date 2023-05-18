@@ -65,28 +65,26 @@ function validationEmpty(resultCheckEmpty, listInput) {
 /**
  * check the syntax mail which user fills in
  * @param input : element of the argument
- * @returns {boolean} : isEmailError
+ * @returns {boolean}
  */
 function checkEmailError(input) {
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
-    let isEmailError = !regexEmail.test(input.value);
 
     if (regexEmail.test(input.value)) {
-        isEmailError = true;
+        return true;
     } else {
-        isEmailError = false;
+        return false;
     }
-    return isEmailError;
 }
 
 /**
  * display an error message when the user enters the wrong email
- * @param isEmailError : true || false
+ * @param resultCheckEmail : true || false
  * @param input : element of email ID
  */
-function validationEmail(isEmailError, input) {
-    if (isEmailError == false) {
+function validationEmail(resultCheckEmail, input) {
+    if (resultCheckEmail == false) {
         showError(input, 'Email Invalid');
     } else {
         showSuccess(input);
@@ -162,8 +160,8 @@ formId.addEventListener('submit', function (e) {
 
     let resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
     validationEmpty(resultCheckEmpty, [nameId, emailId, ageId]);
-    let isEmailError = checkEmailError(emailId);
-    validationEmail(isEmailError, emailId);
+    let resultCheckEmail = checkEmailError(emailId);
+    validationEmail(resultCheckEmail, emailId);
     let isCharacterError = checkCharacter(nameId);
     validationFullName(isCharacterError, nameId);
     let isLimitError = checkLimitNumberError(ageId, 5, 150);
