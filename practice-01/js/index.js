@@ -31,7 +31,7 @@ function showSuccess(input) {
 /**
  * check the form's status is empty or filled in information
  * @param listInput : the elements of the arguments
- * @returns {boolean}
+ * @returns {boolean} returns true if the form has been filled in with any value. Otherwise, return false.
  */
 function checkEmptyError(listInput) {
     listInput.forEach(input => {
@@ -43,7 +43,6 @@ function checkEmptyError(listInput) {
         }
     });
 }
-
 
 /**
  * display information to users when they forget to fill in the form
@@ -65,9 +64,10 @@ function displayEmptyError(resultCheckEmpty, listInput) {
 /**
  * check the syntax mail which user fills in
  * @param input : element of the argument
- * @returns {boolean}
+ * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
  */
 function checkEmailError(input) {
+    //regex : there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens.
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
 
@@ -94,10 +94,10 @@ function displayEmailError(resultCheckEmail, input) {
 /**
  * check special characters, text string match
  * @param input : element of the argument
- * @returns {boolean}
+ * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
  */
 function checkSpecialCharacters(input) {
-    // Regex contains only letters, no numbers or special characters
+    // regex : contains only letters, no numbers or special characters
     const regexCharacter = /^[a-z ,.'-]+$/i;
 
     if (regexCharacter.test(input.value)) {
@@ -114,9 +114,9 @@ function checkSpecialCharacters(input) {
  */
 function displayNameError(resultCheckCharacter, input) {
     if (resultCheckCharacter == false) {
-        showError(input, 'Name cannot contain characters')
+        showError(input, 'Name cannot contain characters');
     } else {
-        showSuccess(input)
+        showSuccess(input);
     }
 }
 
@@ -125,7 +125,7 @@ function displayNameError(resultCheckCharacter, input) {
  * @param input : element of the argument
  * @param min : minimum value that the user passed in
  * @param max : maximum value that the user passed in
- * @returns {boolean}
+ * @returns {boolean} Returns true if the number is larger than min and less than maximum. Otherwise, return false.
  */
 function checkLimitNumberError(input, min, max) {
     if (input.value < min) {
@@ -134,6 +134,7 @@ function checkLimitNumberError(input, min, max) {
     if (input.value > max) {
         return false;
     }
+
     return true;
 }
 
@@ -161,10 +162,13 @@ formId.addEventListener('submit', function (e) {
 
     let resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
     displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
+
     let resultCheckEmail = checkEmailError(emailId);
     displayEmailError(resultCheckEmail, emailId);
+
     let resultCheckCharacter = checkSpecialCharacters(nameId);
     displayNameError(resultCheckCharacter, nameId);
+
     let resultCheckNumber = checkLimitNumberError(ageId, 5, 150);
     displayAgeError(resultCheckNumber, ageId, 5, 150);
 });
