@@ -50,7 +50,7 @@ function checkEmptyError(listInput) {
  * @param resultCheckEmpty : true || false
  * @param listInput : the element list of the arguments
  */
-function validationEmpty(resultCheckEmpty, listInput) {
+function displayEmptyError(resultCheckEmpty, listInput) {
     listInput.forEach(input => {
         input.value = input.value.trim();
 
@@ -83,7 +83,7 @@ function checkEmailError(input) {
  * @param resultCheckEmail : true || false
  * @param input : element of email ID
  */
-function validationEmail(resultCheckEmail, input) {
+function displayEmailError(resultCheckEmail, input) {
     if (resultCheckEmail == false) {
         showError(input, 'Email Invalid');
     } else {
@@ -111,7 +111,7 @@ function checkCharacter(input) {
  * @param resultCheckCharacter : true || false
  * @param input : element of the argument
  */
-function validationFullName(resultCheckCharacter, input) {
+function displayNameError(resultCheckCharacter, input) {
     if (resultCheckCharacter == false) {
         showError(input, 'Name cannot contain characters')
     } else {
@@ -143,7 +143,7 @@ function checkLimitNumberError(input, min, max) {
  * @param min : minimum value that the user passed in
  * @param max : maximum value that the user passed in
  */
-function validationAge(resultCheckNumber, input, min, max) {
+function displayAgeError(resultCheckNumber, input, min, max) {
     if (resultCheckNumber == false && input.value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
@@ -159,11 +159,11 @@ formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
     let resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
-    validationEmpty(resultCheckEmpty, [nameId, emailId, ageId]);
+    displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
     let resultCheckEmail = checkEmailError(emailId);
-    validationEmail(resultCheckEmail, emailId);
+    displayEmailError(resultCheckEmail, emailId);
     let resultCheckCharacter = checkCharacter(nameId);
-    validationFullName(resultCheckCharacter, nameId);
+    displayNameError(resultCheckCharacter, nameId);
     let resultCheckNumber = checkLimitNumberError(ageId, 5, 150);
-    validationAge(resultCheckNumber, ageId, 5, 150);
+    displayAgeError(resultCheckNumber, ageId, 5, 150);
 });
