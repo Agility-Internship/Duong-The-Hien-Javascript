@@ -31,31 +31,30 @@ function showSuccess(input) {
 /**
  * check the form's status is empty or filled in information
  * @param listInput : the elements of the arguments
- * @returns {boolean} isValid
+ * @returns {boolean}
  */
-function checkEmtyError(listInput) {
-    let isValid = true;
+function checkEmptyError(listInput) {
     listInput.forEach(input => {
         input.value = input.value.trim();
         if (!input.value) {
-            isValid = false;
+            return false;
         } else {
-            isValid = true;
+            return true;
         }
     });
-    return isValid;
 }
+
 
 /**
  * display information to users when they forget to fill in the form
- * @param isValid : true || false
+ * @param resultCheckEmpty : true || false
  * @param listInput : the element list of the arguments
  */
-function validationEmty(isValid, listInput) {
+function validationEmpty(resultCheckEmpty, listInput) {
     listInput.forEach(input => {
         input.value = input.value.trim();
 
-        if (isValid == false) {
+        if (resultCheckEmpty == false) {
             showError(input, 'cannot be left blank')
         } else {
             showSuccess(input);
@@ -161,8 +160,8 @@ function validationAge(isLimitError, input, min, max) {
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    let isValid = checkEmtyError([nameId, emailId, ageId]);
-    validationEmty(isValid, [nameId, emailId, ageId]);
+    let resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
+    validationEmpty(resultCheckEmpty, [nameId, emailId, ageId]);
     let isEmailError = checkEmailError(emailId);
     validationEmail(isEmailError, emailId);
     let isCharacterError = checkCharacter(nameId);
