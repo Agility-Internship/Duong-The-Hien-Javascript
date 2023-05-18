@@ -4,7 +4,7 @@ const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
 
 /**
- * display error message and add invalid class to display error status
+ * Display error message and add invalid class to display error status
  * @param  input  : results from functional validations
  * @param  message: results from functional validations
  */
@@ -45,7 +45,7 @@ function checkEmptyError(listInput) {
 }
 
 /**
- * display information to users when they forget to fill in the form
+ * Display information to users when they forget to fill in the form
  * @param resultCheckEmpty : true || false
  * @param listInput : the element list of the arguments
  */
@@ -79,7 +79,7 @@ function checkEmailError(input) {
 }
 
 /**
- * display an error message when the user enters the wrong email
+ * Display an error message when the user enters the wrong email
  * @param resultCheckEmail : true || false
  * @param input : element of email ID
  */
@@ -108,7 +108,7 @@ function checkSpecialCharacters(input) {
 }
 
 /**
- * display a message to the user when the content contains special characters
+ * Display a message to the user when the content contains special characters
  * @param resultCheckCharacter : true || false
  * @param input : element of the argument
  */
@@ -132,7 +132,7 @@ function checkLimitNumberError(value, min, max) {
 }
 
 /**
- * display a message when the user enters the wrong number
+ * Display a message when the user enters the wrong number
  * @param resultCheckNumber :true || false
  * @param input :element of the argument
  * @param min : minimum value that the user passed in
