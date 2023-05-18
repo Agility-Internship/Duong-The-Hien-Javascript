@@ -8,7 +8,6 @@ const ageId = document.querySelector('#age');
  * @param  input  : Results from functional validations
  * @param  message: Results from functional validations
  */
-
 function showError(input, message) {
     let errorDisplay = input.parentElement;
     let errorMessage = errorDisplay.querySelector('.form-message');
@@ -21,7 +20,6 @@ function showError(input, message) {
  * Change display of error messages to success and remove invalid class
  * @param input : Results from functional validations
  */
-
 function showSuccess(input) {
     let errorDisplay = input.parentElement;
     let errorMessage = errorDisplay.querySelector('.form-message');
@@ -35,7 +33,6 @@ function showSuccess(input) {
  * @param listInput : the elements of the arguments
  * @returns {boolean} isValid
  */
-
 function checkEmtyError(listInput) {
     let isValid = true;
     listInput.forEach(input => {
@@ -54,7 +51,6 @@ function checkEmtyError(listInput) {
  * @param isValid : True || False
  * @param listInput : The element list of the arguments
  */
-
 function validationEmty(isValid, listInput) {
     listInput.forEach(input => {
         input.value = input.value.trim();
@@ -72,11 +68,9 @@ function validationEmty(isValid, listInput) {
  * @param input : Element of the argument
  * @returns {boolean} : isEmailError
  */
-
 function checkEmailError(input) {
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
-
     let isEmailError = !regexEmail.test(input.value);
 
     if (regexEmail.test(input.value)) {
@@ -92,7 +86,6 @@ function checkEmailError(input) {
  * @param isEmailError : True || False
  * @param input : Element of email ID
  */
-
 function validationEmail(isEmailError, input) {
     if (isEmailError == false) {
         showError(input, 'Email Invalid');
@@ -106,7 +99,6 @@ function validationEmail(isEmailError, input) {
  * @param input : Element of the argument
  * @returns {boolean}
  */
-
 function checkCharacter(input) {
     const regexCharacter = /[ ^a-z-A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
 
@@ -122,7 +114,6 @@ function checkCharacter(input) {
  * @param isCharacterError : True || False
  * @param input : Element of the argument
  */
-
 function validationFullName(isCharacterError, input) {
     if (isCharacterError == false) {
         showError(input, 'Name cannot contain characters')
@@ -138,7 +129,6 @@ function validationFullName(isCharacterError, input) {
  * @param max : Maximum value that the user passed in
  * @returns {boolean}
  */
-
 function checkLimitNumberError(input, min, max) {
     if (input.value < min) {
         return false;
@@ -156,7 +146,6 @@ function checkLimitNumberError(input, min, max) {
  * @param min : Minimum value that the user passed in
  * @param max : Maximum value that the user passed in
  */
-
 function validationAge(isLimitError, input, min, max) {
     if (isLimitError == false && input.value < min) {
         showError(input, `Number must be larger than ${min}`);
@@ -169,7 +158,6 @@ function validationAge(isLimitError, input, min, max) {
 /**
  * Event submit
  */
-
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
