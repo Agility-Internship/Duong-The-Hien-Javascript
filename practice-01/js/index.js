@@ -108,11 +108,11 @@ function checkCharacter(input) {
 
 /**
  * display a message to the user when the content contains special characters
- * @param isCharacterError : true || false
+ * @param resultCheckCharacter : true || false
  * @param input : element of the argument
  */
-function validationFullName(isCharacterError, input) {
-    if (isCharacterError == false) {
+function validationFullName(resultCheckCharacter, input) {
+    if (resultCheckCharacter == false) {
         showError(input, 'Name cannot contain characters')
     } else {
         showSuccess(input)
@@ -138,16 +138,16 @@ function checkLimitNumberError(input, min, max) {
 
 /**
  * display a message when the user enters the wrong number
- * @param isLimitError :true || false
+ * @param resultCheckNumber :true || false
  * @param input :element of the argument
  * @param min : minimum value that the user passed in
  * @param max : maximum value that the user passed in
  */
-function validationAge(isLimitError, input, min, max) {
-    if (isLimitError == false && input.value < min) {
+function validationAge(resultCheckNumber, input, min, max) {
+    if (resultCheckNumber == false && input.value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
-    if (isLimitError == false && input.value > max) {
+    if (resultCheckNumber == false && input.value > max) {
         showError(input, `Number must be small than ${max}`);
     }
 }
@@ -162,8 +162,8 @@ formId.addEventListener('submit', function (e) {
     validationEmpty(resultCheckEmpty, [nameId, emailId, ageId]);
     let resultCheckEmail = checkEmailError(emailId);
     validationEmail(resultCheckEmail, emailId);
-    let isCharacterError = checkCharacter(nameId);
-    validationFullName(isCharacterError, nameId);
-    let isLimitError = checkLimitNumberError(ageId, 5, 150);
-    validationAge(isLimitError, ageId, 5, 150);
+    let resultCheckCharacter = checkCharacter(nameId);
+    validationFullName(resultCheckCharacter, nameId);
+    let resultCheckNumber = checkLimitNumberError(ageId, 5, 150);
+    validationAge(resultCheckNumber, ageId, 5, 150);
 });
