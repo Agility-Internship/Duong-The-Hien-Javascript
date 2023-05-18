@@ -17,7 +17,7 @@ function showError(input, message) {
 }
 
 /**
- * change display of error messages to success and remove invalid class
+ * Change display of error messages to success and remove invalid class
  * @param input : results from functional validations
  */
 function showSuccess(input) {
@@ -29,7 +29,7 @@ function showSuccess(input) {
 }
 
 /**
- * check the form's status is empty or filled in information
+ * Check the form's status is empty or filled in information
  * @param listInput : the elements of the arguments
  * @returns {boolean} returns true if the form has been filled in with any value. Otherwise, return false.
  */
@@ -62,12 +62,12 @@ function displayEmptyError(resultCheckEmpty, listInput) {
 }
 
 /**
- * check the syntax mail which user fills in
+ * Check the syntax mail which user fills in
  * @param input : element of the argument
  * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
  */
 function checkEmailError(input) {
-    //regex : there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens.
+    //Regex : there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens.
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
 
@@ -92,7 +92,7 @@ function displayEmailError(resultCheckEmail, input) {
 }
 
 /**
- * check special characters, text string match
+ * Check special characters, text string match
  * @param input : element of the argument
  * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
  */
@@ -121,7 +121,7 @@ function displayNameError(resultCheckCharacter, input) {
 }
 
 /**
- * check if the value of the number meets the requirements or not
+ * Check if the value of the number meets the requirements or not
  * @param value : element of the argument
  * @param min : minimum value that the user passed in
  * @param max : maximum value that the user passed in
@@ -151,7 +151,7 @@ function displayAgeError(resultCheckNumber, input, min, max) {
 }
 
 /**
- * event submit
+ * Event submit
  */
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
