@@ -122,20 +122,13 @@ function displayNameError(resultCheckCharacter, input) {
 
 /**
  * check if the value of the number meets the requirements or not
- * @param input : element of the argument
+ * @param value : element of the argument
  * @param min : minimum value that the user passed in
  * @param max : maximum value that the user passed in
  * @returns {boolean} Returns true if the number is larger than min and less than maximum. Otherwise, return false.
  */
-function checkLimitNumberError(input, min, max) {
-    if (input.value < min) {
-        return false;
-    }
-    if (input.value > max) {
-        return false;
-    }
-
-    return true;
+function checkLimitNumberError(value, min, max) {
+    return value < min || value > max ? false : true;
 }
 
 /**
@@ -146,10 +139,13 @@ function checkLimitNumberError(input, min, max) {
  * @param max : maximum value that the user passed in
  */
 function displayAgeError(resultCheckNumber, input, min, max) {
-    if (resultCheckNumber == false && input.value < min) {
+    let value = input.value;
+
+    console.log(resultCheckNumber)
+    if (resultCheckNumber == false && value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
-    if (resultCheckNumber == false && input.value > max) {
+    if (resultCheckNumber == false && value> max) {
         showError(input, `Number must be small than ${max}`);
     }
 }
@@ -169,6 +165,6 @@ formId.addEventListener('submit', function (e) {
     let resultCheckCharacter = checkSpecialCharacters(nameId);
     displayNameError(resultCheckCharacter, nameId);
 
-    let resultCheckNumber = checkLimitNumberError(ageId, 5, 150);
+    let resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
     displayAgeError(resultCheckNumber, ageId, 5, 150);
 });
