@@ -92,12 +92,13 @@ function displayEmailError(resultCheckEmail, input) {
 }
 
 /**
- * check special characters
+ * check special characters, text string match
  * @param input : element of the argument
  * @returns {boolean}
  */
-function checkCharacter(input) {
-    const regexCharacter = /[ ^a-z-A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
+function checkSpecialCharacters(input) {
+    // Regex contains only letters, no numbers or special characters
+    const regexCharacter = /^[a-z ,.'-]+$/i;
 
     if (regexCharacter.test(input.value)) {
         return true;
@@ -162,7 +163,7 @@ formId.addEventListener('submit', function (e) {
     displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
     let resultCheckEmail = checkEmailError(emailId);
     displayEmailError(resultCheckEmail, emailId);
-    let resultCheckCharacter = checkCharacter(nameId);
+    let resultCheckCharacter = checkSpecialCharacters(nameId);
     displayNameError(resultCheckCharacter, nameId);
     let resultCheckNumber = checkLimitNumberError(ageId, 5, 150);
     displayAgeError(resultCheckNumber, ageId, 5, 150);
