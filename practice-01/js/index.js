@@ -124,7 +124,7 @@ function displayNameError(resultCheckName, input) {
  * @returns {boolean} Returns true if the number is larger than min and less than maximum. Otherwise, return false.
  */
 function checkLimitNumberError(value, min, max) {
-    return value < min && value > max ;
+    return value < min && value > max;
 }
 
 /**
@@ -140,26 +140,51 @@ function displayAgeError(resultCheckNumber, input, min, max) {
     if (resultCheckNumber == false && value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
-    if (resultCheckNumber == false && value> max) {
+    if (resultCheckNumber == false && value > max) {
         showError(input, `Number must be small than ${max}`);
     }
 }
 
 /**
- * Event submit
+ * User click event, show an error message if the user enters it wrong
  */
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
-    displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
+    /**
+     *Validate when the user fills in the information, including checking the content and displaying an error message if the user enters it incorrectly
+     */
+    function validateEmpty() {
+        const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
+        displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
+    }
+    validateEmpty();
 
-    const resultCheckEmail = checkEmailError(emailId);
-    displayEmailError(resultCheckEmail, emailId);
+    /**
+     * Validate the user's email, check the syntax, and display an error if the user mistypes
+     */
+    function validateEmail() {
+        const resultCheckEmail = checkEmailError(emailId);
+        displayEmailError(resultCheckEmail, emailId);
+    }
+    validateEmail();
 
-    const resultCheckName = checkNameError(nameId);
-    displayNameError(resultCheckName, nameId);
+    /**
+     * Validate the user's name, check the syntax, and display an error if the user mistypes
+     */
+    function validateName () {
+        const resultCheckName = checkNameError(nameId);
+        displayNameError(resultCheckName, nameId);
+    }
+    validateName();
 
-    const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
-    displayAgeError(resultCheckNumber, ageId, 5, 150);
+    /**
+     * Validate the user's age, Check the age limit, if less than or older than the allowed error display
+     */
+    function validateCheckNumber() {
+        const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
+        displayAgeError(resultCheckNumber, ageId, 5, 150);
+    }
+    validateCheckNumber();
+
 });
