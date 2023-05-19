@@ -124,7 +124,7 @@ function displayNameError(resultCheckCharacter, input) {
  * @returns {boolean} Returns true if the number is larger than min and less than maximum. Otherwise, return false.
  */
 function checkLimitNumberError(value, min, max) {
-    return value < min || value > max ? false : true;
+    return value < min && value > max ;
 }
 
 /**
