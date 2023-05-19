@@ -5,8 +5,8 @@ const ageId = document.querySelector('#age');
 
 /**
  * Display error message and add invalid class to display error status
- * @param input: element of the argument
- * @param message: is the string literal of the error message passed from the parameter
+ * @param input : element of the argument
+ * @param message : is the string literal of the error message passed from the parameter
  */
 function showError(input, message) {
     let errorDisplay = input.parentElement;
@@ -18,7 +18,7 @@ function showError(input, message) {
 
 /**
  * Change display of error messages to success and remove invalid class
- * @param input: element of the argument
+ * @param input : element of the argument
  */
 function showSuccess(input) {
     let errorDisplay = input.parentElement;
