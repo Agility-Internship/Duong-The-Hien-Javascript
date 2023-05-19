@@ -86,8 +86,6 @@ function checkEmailError(input) {
 function displayEmailError(resultCheckEmail, input) {
     if (resultCheckEmail == false) {
         showError(input, 'Email Invalid');
-    } else {
-        showSuccess(input);
     }
 }
 
@@ -115,8 +113,6 @@ function checkSpecialCharacters(input) {
 function displayNameError(resultCheckCharacter, input) {
     if (resultCheckCharacter == false) {
         showError(input, 'Name cannot contain characters');
-    } else {
-        showSuccess(input);
     }
 }
 
@@ -141,7 +137,6 @@ function checkLimitNumberError(value, min, max) {
 function displayAgeError(resultCheckNumber, input, min, max) {
     let value = input.value;
 
-    console.log(resultCheckNumber)
     if (resultCheckNumber == false && value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
