@@ -5,8 +5,8 @@ const ageId = document.querySelector('#age');
 
 /**
  * Display error message and add invalid class to display error status
- * @param  input  : results from functional validations
- * @param  message: results from functional validations
+ * @param input: element of the argument
+ * @param message: is the string literal of the error message passed from the parameter
  */
 function showError(input, message) {
     let errorDisplay = input.parentElement;
@@ -18,7 +18,7 @@ function showError(input, message) {
 
 /**
  * Change display of error messages to success and remove invalid class
- * @param input : results from functional validations
+ * @param input: element of the argument
  */
 function showSuccess(input) {
     let errorDisplay = input.parentElement;
@@ -31,7 +31,7 @@ function showSuccess(input) {
 /**
  * Check the form's status is empty or filled in information
  * @param listInput : the elements of the arguments
- * @returns {boolean} returns true if the form has been filled in with any value. Otherwise, return false.
+ * @returns {boolean} Returns true if the form has been filled in with any value. Otherwise, return false.
  */
 function checkEmptyError(listInput) {
     listInput.forEach(input => {
@@ -64,7 +64,7 @@ function displayEmptyError(resultCheckEmpty, listInput) {
 /**
  * Check the syntax mail which user fills in
  * @param input : element of the argument
- * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
+ * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false.
  */
 function checkEmailError(input) {
     //Regex : there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens.
@@ -92,7 +92,7 @@ function displayEmailError(resultCheckEmail, input) {
 /**
  * Check special characters, text string match
  * @param input : element of the argument
- * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
+ * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false.
  */
 function checkNameError(input) {
     // Regex : contains only letters, no numbers or special characters
