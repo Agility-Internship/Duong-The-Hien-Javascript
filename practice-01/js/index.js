@@ -97,7 +97,7 @@ function displayEmailError(resultCheckEmail, input) {
  * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
  */
 function checkSpecialCharacters(input) {
-    // regex : contains only letters, no numbers or special characters
+    // Regex : contains only letters, no numbers or special characters
     const regexCharacter = /^[a-z ,.'-]+$/i;
 
     if (regexCharacter.test(input.value)) {
