@@ -94,7 +94,7 @@ function displayEmailError(resultCheckEmail, input) {
  * @param input : element of the argument
  * @returns {boolean} return true if text string match and pass the regex rule. Otherwise, return false.
  */
-function checkSpecialCharacters(input) {
+function checkNameError(input) {
     // Regex : contains only letters, no numbers or special characters
     const regexCharacter = /^[a-z ,.'-]+$/i;
 
@@ -107,11 +107,11 @@ function checkSpecialCharacters(input) {
 
 /**
  * Display a message to the user when the content contains special characters
- * @param resultCheckCharacter : true || false
+ * @param resultCheckName : true || false
  * @param input : element of the argument
  */
-function displayNameError(resultCheckCharacter, input) {
-    if (resultCheckCharacter == false) {
+function displayNameError(resultCheckName, input) {
+    if (resultCheckName == false) {
         showError(input, 'Name cannot contain characters');
     }
 }
@@ -151,15 +151,15 @@ function displayAgeError(resultCheckNumber, input, min, max) {
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    let resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
+    const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
     displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
 
-    let resultCheckEmail = checkEmailError(emailId);
+    const resultCheckEmail = checkEmailError(emailId);
     displayEmailError(resultCheckEmail, emailId);
 
-    let resultCheckCharacter = checkSpecialCharacters(nameId);
-    displayNameError(resultCheckCharacter, nameId);
+    const resultCheckName = checkNameError(nameId);
+    displayNameError(resultCheckName, nameId);
 
-    let resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
+    const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
     displayAgeError(resultCheckNumber, ageId, 5, 150);
 });
