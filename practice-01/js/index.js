@@ -60,7 +60,7 @@ function displayEmptyError(resultCheckEmpty, listInput) {
 }
 
 /**
- *Validate when the user fills in the information, including checking the content and displaying an error message if the user enters it incorrectly
+ * Validate when the user fills in the information, including checking the content and displaying an error message if the user enters it incorrectly
  */
 function validateEmpty() {
     const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
@@ -73,7 +73,7 @@ function validateEmpty() {
  * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkEmailError(input) {
-    // Regex: there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens
+    // Regex: there must be a ‘@’ symbol after initial characters, email address must begin with alpha-numeric characters, it may have periods, underscores and hyphens
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
 
