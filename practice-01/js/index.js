@@ -5,8 +5,8 @@ const ageId = document.querySelector('#age');
 
 /**
  * Display error message and add invalid class to display error status
- * @param input : element of the argument
- * @param message : is the string literal of the error message passed from the parameter
+ * @param input: element of the argument
+ * @param message: is the string literal of the error message passed from the parameter
  */
 function showError(input, message) {
     let errorDisplay = input.parentElement;
@@ -18,7 +18,7 @@ function showError(input, message) {
 
 /**
  * Change display of error messages to success and remove invalid class
- * @param input : element of the argument
+ * @param input: element of the argument
  */
 function showSuccess(input) {
     let errorDisplay = input.parentElement;
@@ -30,7 +30,7 @@ function showSuccess(input) {
 
 /**
  * Check the form's status is empty or filled in information
- * @param listInput : the elements of the arguments
+ * @param listInput: the element list of the arguments
  * @returns {boolean} Returns true if the form has been filled in with any value. Otherwise, return false
  */
 function checkEmptyError(listInput) {
@@ -44,8 +44,8 @@ function checkEmptyError(listInput) {
 
 /**
  * Display information to users when they forget to fill in the form
- * @param resultCheckEmpty : the result is returned from the checkEmptyError function
- * @param listInput : the element list of the arguments
+ * @param resultCheckEmpty: the result is returned from the checkEmptyError function
+ * @param listInput: the element list of the arguments
  */
 function displayEmptyError(resultCheckEmpty, listInput) {
     listInput.forEach(input => {
@@ -69,7 +69,7 @@ function validateEmpty() {
 
 /**
  * Check the syntax mail which user fills in
- * @param input : element of the argument
+ * @param input: element of the argument
  * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkEmailError(input) {
@@ -84,8 +84,8 @@ function checkEmailError(input) {
 
 /**
  * Display an error message when the user enters the wrong email
- * @param resultCheckEmail : the result is returned from the checkEmailError function
- * @param input : element of email ID
+ * @param resultCheckEmail: the result is returned from the checkEmailError function
+ * @param input: element of email ID
  */
 function displayEmailError(resultCheckEmail, input) {
     if (resultCheckEmail == false) {
@@ -103,7 +103,7 @@ function validateEmail() {
 
 /**
  * Check special characters, text string match
- * @param input : element of the argument
+ * @param input: element of the argument
  * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkNameError(input) {
@@ -117,8 +117,8 @@ function checkNameError(input) {
 
 /**
  * Display a message to the user when the content contains special characters
- * @param resultCheckName : the result is returned from the checkNameError function
- * @param input : element of the argument
+ * @param resultCheckName: the result is returned from the checkNameError function
+ * @param input: element of the argument
  */
 function displayNameError(resultCheckName, input) {
     if (resultCheckName == false) {
@@ -136,9 +136,9 @@ function validateName() {
 
 /**
  * Check if the value of the number meets the requirements or not
- * @param value : element of the argument
- * @param min : minimum value that the user passed in
- * @param max : maximum value that the user passed in
+ * @param value: element of the argument
+ * @param min: minimum value that the user passed in
+ * @param max: maximum value that the user passed in
  * @returns {boolean} Returns true if the number is larger than min and less than maximum. Otherwise, return false.
  */
 function checkLimitNumberError(value, min, max) {
@@ -147,10 +147,10 @@ function checkLimitNumberError(value, min, max) {
 
 /**
  * Display a message when the user enters the wrong number
- * @param resultCheckNumber : the result is returned from the checkLimitNumberError function
- * @param input : element of the argument
- * @param min : minimum value that the user passed in
- * @param max : maximum value that the user passed in
+ * @param resultCheckNumber: the result is returned from the checkLimitNumberError function
+ * @param input: element of the argument
+ * @param min: minimum value that the user passed in
+ * @param max: maximum value that the user passed in
  */
 function displayAgeError(resultCheckNumber, input, min, max) {
     let value = input.value;
@@ -184,5 +184,4 @@ formId.addEventListener('submit', function (e) {
     validateName();
 
     validateCheckNumber();
-
 });
