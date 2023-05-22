@@ -31,22 +31,20 @@ function showSuccess(input) {
 /**
  * Check the form's status is empty or filled in information
  * @param listInput : the elements of the arguments
- * @returns {boolean} Returns true if the form has been filled in with any value. Otherwise, return false.
+ * @returns {boolean} Returns true if the form has been filled in with any value. Otherwise, return false
  */
 function checkEmptyError(listInput) {
     listInput.forEach(input => {
         input.value = input.value.trim();
         if (!input.value) {
             return false;
-        } else {
-            return true;
         }
     });
 }
 
 /**
  * Display information to users when they forget to fill in the form
- * @param resultCheckEmpty : true || false
+ * @param resultCheckEmpty : the result is returned from the checkEmptyError function
  * @param listInput : the element list of the arguments
  */
 function displayEmptyError(resultCheckEmpty, listInput) {
@@ -62,25 +60,31 @@ function displayEmptyError(resultCheckEmpty, listInput) {
 }
 
 /**
+ *Validate when the user fills in the information, including checking the content and displaying an error message if the user enters it incorrectly
+ */
+function validateEmpty() {
+    const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
+    displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
+}
+
+/**
  * Check the syntax mail which user fills in
  * @param input : element of the argument
- * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false.
+ * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkEmailError(input) {
-    //Regex : there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens.
+    // Regex: there must be a ‘@’ symbol after initial characters,email address must begin with alpha-numeric characters,it may have periods,underscores and hyphens
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
 
-    if (regexEmail.test(input.value)) {
-        return true;
-    } else {
+    if (!regexEmail.test(input.value)) {
         return false;
     }
 }
 
 /**
  * Display an error message when the user enters the wrong email
- * @param resultCheckEmail : true || false
+ * @param resultCheckEmail : the result is returned from the checkEmailError function
  * @param input : element of email ID
  */
 function displayEmailError(resultCheckEmail, input) {
@@ -90,30 +94,44 @@ function displayEmailError(resultCheckEmail, input) {
 }
 
 /**
+ * Validate the user's email, check the syntax, and display an error if the user mistypes
+ */
+function validateEmail() {
+    const resultCheckEmail = checkEmailError(emailId);
+    displayEmailError(resultCheckEmail, emailId);
+}
+
+/**
  * Check special characters, text string match
  * @param input : element of the argument
- * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false.
+ * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkNameError(input) {
-    // Regex : contains only letters, no numbers or special characters
+    // Regex: contains only letters, no numbers or special characters
     const regexCharacter = /^[a-z ,.'-]+$/i;
 
-    if (regexCharacter.test(input.value)) {
-        return true;
-    } else {
+    if (!regexCharacter.test(input.value)) {
         return false;
     }
 }
 
 /**
  * Display a message to the user when the content contains special characters
- * @param resultCheckName : true || false
+ * @param resultCheckName : the result is returned from the checkNameError function
  * @param input : element of the argument
  */
 function displayNameError(resultCheckName, input) {
     if (resultCheckName == false) {
         showError(input, 'Name cannot contain characters');
     }
+}
+
+/**
+ * Validate the user's name, check the syntax, and display an error if the user mistypes
+ */
+function validateName() {
+    const resultCheckName = checkNameError(nameId);
+    displayNameError(resultCheckName, nameId);
 }
 
 /**
@@ -129,8 +147,8 @@ function checkLimitNumberError(value, min, max) {
 
 /**
  * Display a message when the user enters the wrong number
- * @param resultCheckNumber :true || false
- * @param input :element of the argument
+ * @param resultCheckNumber : the result is returned from the checkLimitNumberError function
+ * @param input : element of the argument
  * @param min : minimum value that the user passed in
  * @param max : maximum value that the user passed in
  */
@@ -146,45 +164,25 @@ function displayAgeError(resultCheckNumber, input, min, max) {
 }
 
 /**
+ * Validate the user's age, Check the age limit, if less than or older than the allowed error display
+ */
+function validateCheckNumber() {
+    const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
+    displayAgeError(resultCheckNumber, ageId, 5, 150);
+}
+
+/**
  * User click event, show an error message if the user enters it wrong
  */
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    /**
-     *Validate when the user fills in the information, including checking the content and displaying an error message if the user enters it incorrectly
-     */
-    function validateEmpty() {
-        const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
-        displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
-    }
     validateEmpty();
 
-    /**
-     * Validate the user's email, check the syntax, and display an error if the user mistypes
-     */
-    function validateEmail() {
-        const resultCheckEmail = checkEmailError(emailId);
-        displayEmailError(resultCheckEmail, emailId);
-    }
     validateEmail();
 
-    /**
-     * Validate the user's name, check the syntax, and display an error if the user mistypes
-     */
-    function validateName () {
-        const resultCheckName = checkNameError(nameId);
-        displayNameError(resultCheckName, nameId);
-    }
     validateName();
 
-    /**
-     * Validate the user's age, Check the age limit, if less than or older than the allowed error display
-     */
-    function validateCheckNumber() {
-        const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
-        displayAgeError(resultCheckNumber, ageId, 5, 150);
-    }
     validateCheckNumber();
 
 });
