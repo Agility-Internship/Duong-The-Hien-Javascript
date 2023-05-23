@@ -2,7 +2,8 @@
   "name": "practice-01",
   "version": "1.0.0",
   "description": "Build a survey form and check the error to survey users.",
-  "main": "index.html",
+  "main": "src/index.html",
+  "source": "src/index.html",
   "scripts": {
     "start": "serve ."
   },

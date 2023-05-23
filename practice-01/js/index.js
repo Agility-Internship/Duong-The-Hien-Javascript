@@ -73,6 +73,7 @@ function validateEmpty() {
  * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkEmailError(input) {
+
     // Regex: there must be a ‘@’ symbol after initial characters, email address must begin with alpha-numeric characters, it may have periods, underscores and hyphens
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     input.value = input.value.trim();
@@ -107,6 +108,7 @@ function validateEmail() {
  * @returns {boolean} Return true if text string match and pass the regex rule. Otherwise, return false
  */
 function checkNameError(input) {
+
     // Regex: contains only letters, no numbers or special characters
     const regexCharacter = /^[a-z ,.'-]+$/i;
 
@@ -172,6 +174,38 @@ function validateCheckNumber() {
 }
 
 /**
+ * Display the results that the user has filed with alert
+ */
+function displayFormResults() {
+    const results = [];
+
+    // Show checked option
+    const selectElements = document.querySelectorAll('.form-group .select');
+    selectElements.forEach(select => {
+        results.push(select.name + ': ' + select.value);
+    });
+
+    // Show checked radios
+    const radioElements = document.querySelectorAll('.form-group .radio');
+    radioElements.forEach(radio => {
+        if (radio.checked) {
+            results.push(radio.name + ': ' + radio.value);
+        }
+    });
+
+    // Show checked checkbox
+    const checkboxElements = document.querySelectorAll('.form-group .checkbox');
+    checkboxElements.forEach(checkbox => {
+        if (checkbox.checked) {
+            results.push(checkbox.name + ': ' + 'Apply');
+        }
+    });
+
+    // Display an alert box with a message about users what have filled in
+    alert(`${results.join('\n')}`);
+}
+
+/**
  * User click event, show an error message if the user enters it wrong
  */
 formId.addEventListener('submit', function (e) {
@@ -184,4 +218,6 @@ formId.addEventListener('submit', function (e) {
     validateName();
 
     validateCheckNumber();
+
+    displayFormResults();
 });
