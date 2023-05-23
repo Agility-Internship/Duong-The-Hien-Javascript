@@ -180,7 +180,7 @@ function validateCheckNumber() {
  * @param role: maximum value that the user passed in
  * @returns {boolean} If the length of the characters is greater than the role, return true
  */
-function checkTextareaError (input,role){
+function checkTextareaError(input, role) {
     return input.length > role;
 }
 
@@ -189,7 +189,7 @@ function checkTextareaError (input,role){
  * @param resultCheckTextarea: the result is returned from the checkTextareaError function
  * @param input: element of the argument
  */
-function displayTextareaError (resultCheckTextarea, input){
+function displayTextareaError(resultCheckTextarea, input) {
     if (resultCheckTextarea == true) {
         showError(input, 'Only 500 characters max');
     }
@@ -199,7 +199,7 @@ function displayTextareaError (resultCheckTextarea, input){
  * Validate textarea, check the network character length, from the validation results show an error message
  */
 function validateTextarea() {
-    const resultCheckTextarea = checkTextareaError([textareaId.value],500);
+    const resultCheckTextarea = checkTextareaError(textareaId.value, 500);
     displayTextareaError(resultCheckTextarea, textareaId)
 }
 
