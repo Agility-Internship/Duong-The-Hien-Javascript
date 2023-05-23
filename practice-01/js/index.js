@@ -2,6 +2,7 @@ const formId = document.querySelector('#form-survey');
 const nameId = document.querySelector('#fullname');
 const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
+const textareaId = document.querySelector('#desc');
 
 /**
  * Display error message and add invalid class to display error status
@@ -174,6 +175,35 @@ function validateCheckNumber() {
 }
 
 /**
+ * Check the length of the array of characters entered by the user
+ * @param input: an array of characters entered by the user in the textarea
+ * @param role: maximum value that the user passed in
+ * @returns {boolean} If the length of the characters is greater than the role, return true
+ */
+function checkTextareaError (input,role){
+    return input.length > role;
+}
+
+/**
+ * Display error message when user enters more than allowed characters
+ * @param resultCheckTextarea: the result is returned from the checkTextareaError function
+ * @param input: element of the argument
+ */
+function displayTextareaError (resultCheckTextarea, input){
+    if (resultCheckTextarea == true) {
+        showError(input, 'Only 500 characters max');
+    }
+}
+
+/**
+ * Validate textarea, check the network character length, from the validation results show an error message
+ */
+function validateTextarea() {
+    const resultCheckTextarea = checkTextareaError([textareaId.value],500);
+    displayTextareaError(resultCheckTextarea, textareaId)
+}
+
+/**
  * Display the results that the user has filed with alert
  */
 function displayFormResults() {
@@ -218,6 +248,8 @@ formId.addEventListener('submit', function (e) {
     validateName();
 
     validateCheckNumber();
+
+    validateTextarea();
 
     displayFormResults();
 });
