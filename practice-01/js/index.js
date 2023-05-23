@@ -190,7 +190,7 @@ function checkTextareaError(input, maxLength) {
  * @param input: element of the argument
  */
 function displayTextareaError(resultCheckTextarea, input) {
-    if (resultCheckTextarea == true) {
+    if (resultCheckTextarea === true) {
         showError(input, 'Only 500 characters max');
     }
 }
