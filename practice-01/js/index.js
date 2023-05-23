@@ -2,7 +2,7 @@ const formId = document.querySelector('#form-survey');
 const nameId = document.querySelector('#fullname');
 const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
-const textareaId = document.querySelector('#desc');
+const commentId = document.querySelector('#desc');
 
 /**
  * Display error message and add invalid class to display error status
@@ -180,17 +180,17 @@ function validateCheckNumber() {
  * @param maxLength: maximum length that the user passed in
  * @returns {boolean} If the length of the characters is greater than the maxLength, return true
  */
-function checkTextareaError(input, maxLength) {
+function checkTextLength(input, maxLength) {
     return input.length > maxLength;
 }
 
 /**
  * Display error message when user enters more than allowed characters
- * @param resultCheckTextarea: the result is returned from the checkTextareaError function
+ * @param resultCheckTextLength: the result is returned from the checkTextLength function
  * @param input: element of the argument
  */
-function displayTextareaError(resultCheckTextarea, input) {
-    if (resultCheckTextarea === true) {
+function displayTextLengthError(resultCheckTextLength, input) {
+    if (resultCheckTextLength === true) {
         showError(input, 'Only 500 characters max');
     }
 }
@@ -198,9 +198,9 @@ function displayTextareaError(resultCheckTextarea, input) {
 /**
  * Validate textarea, check the network character length, from the validation results show an error message
  */
-function validateTextarea() {
-    const resultCheckTextarea = checkTextareaError(textareaId.value, 500);
-    displayTextareaError(resultCheckTextarea, textareaId)
+function validateTextLength() {
+    const resultCheckTextLength = checkTextLength(commentId.value, 500);
+    displayTextLengthError(resultCheckTextLength, commentId)
 }
 
 /**
@@ -249,7 +249,7 @@ formId.addEventListener('submit', function (e) {
 
     validateCheckNumber();
 
-    validateTextarea();
+    validateTextLength();
 
     displayFormResults();
 });
