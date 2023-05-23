@@ -176,13 +176,13 @@ function validateCheckNumber() {
  */
 function displayFormResults() {
     const results = [];
-    //Show checked option
+    // Show checked option
     const selectElements = document.querySelectorAll('.form-group .select');
     selectElements.forEach(select => {
         results.push(select.name + ': ' + select.value);
     });
 
-    //Show checked radios
+    // Show checked radios
     const radioElements = document.querySelectorAll('.form-group .radio');
     radioElements.forEach(radio => {
         if (radio.checked) {
@@ -190,7 +190,7 @@ function displayFormResults() {
         }
     });
 
-    //Show checked checkbox
+    // Show checked checkbox
     const checkboxElements = document.querySelectorAll('.form-group .checkbox');
     checkboxElements.forEach(checkbox => {
         if (checkbox.checked) {
@@ -199,7 +199,7 @@ function displayFormResults() {
     });
 
     //Display an alert box with a message about users what have filled in
-    alert(`${results.join('\n')}` );
+    alert(`${results.join('\n')}`);
 }
 
 /**
