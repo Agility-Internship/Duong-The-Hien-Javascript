@@ -177,11 +177,11 @@ function validateCheckNumber() {
 /**
  * Check the length of the array of characters entered by the user
  * @param input: an array of characters entered by the user in the textarea
- * @param role: maximum value that the user passed in
- * @returns {boolean} If the length of the characters is greater than the role, return true
+ * @param maxLength: maximum length that the user passed in
+ * @returns {boolean} If the length of the characters is greater than the maxLength, return true
  */
-function checkTextareaError(input, role) {
-    return input.length > role;
+function checkTextareaError(input, maxLength) {
+    return input.length > maxLength;
 }
 
 /**
