@@ -2,7 +2,7 @@ const formId = document.querySelector('#form-survey');
 const nameId = document.querySelector('#fullname');
 const emailId = document.querySelector('#email');
 const ageId = document.querySelector('#age');
-const commentId = document.querySelector('#comment');
+const commentId = document.querySelector('#comments');
 
 /**
  * Display error message and add invalid class to display error status
