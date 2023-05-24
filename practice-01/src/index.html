@@ -13,6 +13,9 @@
 
 <body>
     <main class="main">
+        <h1 class="form-title">
+            Survey Form
+        </h1>
         <form method="POST" class="form" id="form-survey">
             <!-- FullName -->
             <div class="form-group">
@@ -54,7 +57,8 @@
                         <input class="radio" name="answer" type="radio" value="No" /><span class="form-text">No</span>
                     </li>
                     <li class="form-check">
-                        <input class="radio" name="answer" type="radio" value="Maybe" /><span class="form-text">Maybe</span>
+                        <input class="radio" name="answer" type="radio" value="Maybe" /><span
+                            class="form-text">Maybe</span>
                     </li>
                 </ul>
                 <span class="form-message"></span>
@@ -80,7 +84,8 @@
                         <input class="checkbox" name="Python" type="checkbox" /><span class="form-text">Python</span>
                     </li>
                     <li class="form-check">
-                        <input class="checkbox" name="JavaScript" type="checkbox" /><span class="form-text">JavaScript</span>
+                        <input class="checkbox" name="JavaScript" type="checkbox" /><span
+                            class="form-text">JavaScript</span>
                     </li>
                     <li class="form-check">
                         <input class="checkbox" name="React" type="checkbox" /><span class="form-text">React</span>
@@ -99,8 +104,8 @@
             </div>
             <!-- Description -->
             <div class="form-group">
-                <label for="comment" class="form-label">Any comments or suggestions (Max 500 characters)</label>
-                <textarea name="comment" id="comment" rows="5"></textarea>
+                <label for="comment" class="form-label"><p>Any comments or suggestions <i> (Max 500 characters)</i></p></label>
+                <textarea name="comment" id="comment" rows="3" cols="6"></textarea>
                 <span class="form-message"></span>
             </div>
             <!-- Button -->
