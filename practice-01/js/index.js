@@ -269,25 +269,10 @@ formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
     if (validateEmpty() === false) {
-        validateEmpty();
-        return alert('Please enter full information Name , Email, Age ');
-    } else {
-        if (validateName() === false) {
-            validateName();
-            return;
-        }
-        if (validateEmail() === false) {
-            validateEmail();
-            return;
-        }
-        if (validateCheckNumber() === true) {
-            validateCheckNumber();
-            return;
-        }
-        if (validateTextLength() === false) {
-            validateTextLength();
-            return;
-        }
+        return alert('Please enter full information Name, Email, Age ');
+    } else if (validateName() === false || validateEmail() === false || validateCheckNumber() === true || validateTextLength() === false) {
+        return;
     }
+
     displayFormResults();
 });
