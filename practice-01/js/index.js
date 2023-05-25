@@ -270,9 +270,11 @@ formId.addEventListener('submit', function (e) {
 
     if (validateEmpty() === false) {
         return alert('Please enter full information Name, Email, Age ');
-    } else if (validateName() === false || validateEmail() === false || validateCheckNumber() === true || validateTextLength() === false) {
+    }
+    if (validateName() === false || validateEmail() === false || validateCheckNumber() === true || validateTextLength() === false) {
         return;
     }
 
     displayFormResults();
+
 });
