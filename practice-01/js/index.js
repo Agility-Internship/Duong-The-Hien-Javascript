@@ -264,9 +264,9 @@ formId.addEventListener('submit', function (e) {
 
     if (validateEmpty() === false) {
         return alert('Please enter full information Name, Email, Age ');
-    };
+    }
     if (validateName() === false || validateEmail() === false || validateCheckNumber() === true || validateTextLength() === false) {
         return;
-    };
+    }
     displayFormResults();
 });
