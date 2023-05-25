@@ -154,7 +154,7 @@ function validateName() {
  * @returns {boolean} Returns true if the number is larger than min and less than maximum. Otherwise, return false.
  */
 function checkLimitNumberError(value, min, max) {
-    return value < min && value > max;
+    return value < min || value > max;
 }
 
 /**
@@ -167,10 +167,10 @@ function checkLimitNumberError(value, min, max) {
 function displayAgeError(resultCheckNumber, input, min, max) {
     let value = input.value;
 
-    if (resultCheckNumber == false && value < min) {
+    if (resultCheckNumber == true && value < min) {
         showError(input, `Number must be larger than ${min}`);
     }
-    if (resultCheckNumber == false && value > max) {
+    if (resultCheckNumber == true && value > max) {
         showError(input, `Number must be small than ${max}`);
     }
 }
@@ -275,7 +275,6 @@ formId.addEventListener('submit', function (e) {
             validateEmail();
             return;
         }
-
         if(validateCheckNumber() === true){
             validateCheckNumber();
             return;
