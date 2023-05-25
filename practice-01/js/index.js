@@ -11,9 +11,11 @@ const commentId = document.querySelector('#comment');
  */
 function showError(input, message) {
     let errorDisplay = input.parentElement;
+    let pointer = errorDisplay.querySelector('.form-control');
     let errorMessage = errorDisplay.querySelector('.form-message');
 
     errorDisplay.classList.add('invalid');
+    pointer.focus();
     errorMessage.innerText = message;
 }
 
@@ -35,12 +37,16 @@ function showSuccess(input) {
  * @returns {boolean} Returns true if the form has been filled in with any value. Otherwise, return false
  */
 function checkEmptyError(listInput) {
+    let result;
+
     listInput.forEach(input => {
         input.value = input.value.trim();
         if (!input.value) {
-            return false;
+            result = false;
         }
     });
+    return result;
+
 }
 
 /**
@@ -53,7 +59,7 @@ function displayEmptyError(resultCheckEmpty, listInput) {
         input.value = input.value.trim();
 
         if (resultCheckEmpty == false) {
-            showError(input, 'cannot be left blank')
+            showError(input, 'cannot be left blank');
         } else {
             showSuccess(input);
         }
@@ -66,6 +72,7 @@ function displayEmptyError(resultCheckEmpty, listInput) {
 function validateEmpty() {
     const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
     displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
+    return resultCheckEmpty;
 }
 
 /**
@@ -101,6 +108,7 @@ function displayEmailError(resultCheckEmail, input) {
 function validateEmail() {
     const resultCheckEmail = checkEmailError(emailId);
     displayEmailError(resultCheckEmail, emailId);
+    return resultCheckEmail;
 }
 
 /**
@@ -135,6 +143,7 @@ function displayNameError(resultCheckName, input) {
 function validateName() {
     const resultCheckName = checkNameError(nameId);
     displayNameError(resultCheckName, nameId);
+    return resultCheckName;
 }
 
 /**
@@ -172,6 +181,7 @@ function displayAgeError(resultCheckNumber, input, min, max) {
 function validateCheckNumber() {
     const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
     displayAgeError(resultCheckNumber, ageId, 5, 150);
+    return resultCheckNumber;
 }
 
 /**
@@ -209,6 +219,15 @@ function validateTextLength() {
 function displayFormResults() {
     const results = [];
 
+    // Show text name
+    results.push('Name is: ' + nameId.value);
+
+    // Show text email
+    results.push('Email is: ' + emailId.value);
+
+    // Show age
+    results.push('Age is: ' + ageId.value);
+
     // Show checked option
     const selectElements = document.querySelectorAll('.form-group .select');
     selectElements.forEach(select => {
@@ -231,6 +250,9 @@ function displayFormResults() {
         }
     });
 
+    // Show comment or suggestions
+    results.push('The comment is : ' + commentId.value);
+
     // Display an alert box with a message about users what have filled in
     alert(`${results.join('\n')}`);
 }
@@ -241,15 +263,27 @@ function displayFormResults() {
 formId.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    validateEmpty();
+    if (validateEmpty() === false) {
+        validateEmpty();
+        return alert('Please enter full information Name , Email, Age ');
+    } else {
+        if(validateName() === false){
+            validateName();
+            return;
+        }
+        if(validateEmail() === false){
+            validateEmail();
+            return;
+        }
 
-    validateEmail();
-
-    validateName();
-
-    validateCheckNumber();
-
-    validateTextLength();
-
+        if(validateCheckNumber() === true){
+            validateCheckNumber();
+            return;
+        }
+        if(validateTextLength() === false){
+            validateTextLength();
+            return;
+        }
+    }
     displayFormResults();
 });
