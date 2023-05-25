@@ -269,5 +269,4 @@ formId.addEventListener('submit', function (e) {
         return;
     };
     displayFormResults();
-
 });
