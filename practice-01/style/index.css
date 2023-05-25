@@ -106,6 +106,7 @@ html {
 .form-check {
   text-align: left;
   display: flex;
+  gap: 4px;
 }
 
 .form-message {
