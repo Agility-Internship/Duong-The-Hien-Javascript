@@ -73,6 +73,7 @@ function validateEmpty() {
     const resultCheckEmpty = checkEmptyError([nameId, emailId, ageId]);
     displayEmptyError(resultCheckEmpty, [nameId, emailId, ageId]);
     return resultCheckEmpty;
+
 }
 
 /**
@@ -109,6 +110,7 @@ function validateEmail() {
     const resultCheckEmail = checkEmailError(emailId);
     displayEmailError(resultCheckEmail, emailId);
     return resultCheckEmail;
+
 }
 
 /**
@@ -144,6 +146,7 @@ function validateName() {
     const resultCheckName = checkNameError(nameId);
     displayNameError(resultCheckName, nameId);
     return resultCheckName;
+
 }
 
 /**
@@ -182,6 +185,7 @@ function validateCheckNumber() {
     const resultCheckNumber = checkLimitNumberError([ageId.value], 5, 150);
     displayAgeError(resultCheckNumber, ageId, 5, 150);
     return resultCheckNumber;
+
 }
 
 /**
