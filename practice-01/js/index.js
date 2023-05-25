@@ -158,6 +158,7 @@ function validateName() {
  */
 function checkLimitNumberError(value, min, max) {
     return value < min || value > max;
+
 }
 
 /**
@@ -271,19 +272,19 @@ formId.addEventListener('submit', function (e) {
         validateEmpty();
         return alert('Please enter full information Name , Email, Age ');
     } else {
-        if(validateName() === false){
+        if (validateName() === false) {
             validateName();
             return;
         }
-        if(validateEmail() === false){
+        if (validateEmail() === false) {
             validateEmail();
             return;
         }
-        if(validateCheckNumber() === true){
+        if (validateCheckNumber() === true) {
             validateCheckNumber();
             return;
         }
-        if(validateTextLength() === false){
+        if (validateTextLength() === false) {
             validateTextLength();
             return;
         }
