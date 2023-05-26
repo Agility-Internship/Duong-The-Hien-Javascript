@@ -58,7 +58,7 @@ function displayEmptyError(resultCheckEmpty, listInput) {
         input.value = input.value.trim();
 
         if (resultCheckEmpty == false) {
-            showError(input, 'cannot be left blank');
+            showError(input, 'Cannot be left blank');
         } else {
             showSuccess(input);
         }
@@ -230,14 +230,14 @@ function displayFormResults() {
     // Show checked option
     const selectElements = document.querySelectorAll('.form-group .select');
     selectElements.forEach(select => {
-        results.push(select.name + ': ' + select.value);
+        results.push('Describes: ' + ': ' + select.value);
     });
 
     // Show checked radios
     const radioElements = document.querySelectorAll('.form-group .radio');
     radioElements.forEach(radio => {
         if (radio.checked) {
-            results.push(radio.name + ': ' + radio.value);
+            results.push('Answer is: '+ ': ' + radio.value);
         }
     });
 
