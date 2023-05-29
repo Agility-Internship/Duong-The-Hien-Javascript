@@ -9,7 +9,7 @@
 - Estimate time: 2 days.
 - End date : 28/04/2023.
 ## TARGET
-- Get familiar with JavaScript ES6 syntax, briefly introduce basic DOM manipulation.
+- Briefly introduce basic DOM manipulation.
 - Selecting Elements, Getting Values, and Setting Value.
 - Attributes, Classes, and CSS Manipulation.
 - Form submit , form field .
