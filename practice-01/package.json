@@ -1,0 +1,14 @@
+{
+  "name": "practice-01",
+  "version": "1.0.0",
+  "description": "Build a survey form and check the error to survey users.",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "author": "Duong The Hien",
+  "license": "ISC"
+}
