@@ -41,7 +41,7 @@
 
 * Understand & apply knowledge HTML/CSS/JavaScript (with ES6 syntax)
 * Using javascript to build a filter that displays a list of products by manufacturer and price
-* Learn and apply some JS built-in helpers like map, reduce , find , sort, filter
+* Learn and apply some JS built-in helpers like map, reduce, find, sort, filter
 * Understand and apply localStorage
 * Get familiar with DevTools (e.g Google Chrome DevTools) for debugging issues
 
