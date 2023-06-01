@@ -54,7 +54,7 @@
 
 ## How to start (step by step)
 
-* Step 1 Clone repository :
+* Step 1 Clone repository:
     ~~~
     git clone https://github.com/Agility-Internship/Duong-The-Hien-Javascript.git
     ~~~
