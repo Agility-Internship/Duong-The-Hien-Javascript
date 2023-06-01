@@ -34,7 +34,7 @@
 
 ## REQUIREMENT
 
-* Displays a list of phones for sale by price filter and manufacturer. Users can also view listings of phones at other price points by desired manufacturers.
+* Displays a list of phones for sale by price filter and manufacturer. Users can also view listings of phones at other price points by desired manufacturers
 * The app has 3 features:
     - Show all products without any filter first
     - Includes filters to help customers choose the product they want
