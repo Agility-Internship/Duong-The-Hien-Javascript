@@ -1,6 +1,6 @@
 # JavaScript #Practice-02
 
-## Overview
+## OVERVIEW
 
 * From a phone list display products by filters
 * Description: Apply filters to display products that meet specific needs
