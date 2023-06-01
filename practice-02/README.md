@@ -40,7 +40,7 @@
     - Includes filters to help customers choose the product they want
     - List of phone manufacturers to help users choose
 
-#### ANALYSIS :
+#### ANALYSIS
 
 * This is the design analysis for the application : [link](https://docs.google.com/document/d/1MF8DaLU2YsnOjFPMEMo7l8BASeBk6MHj2dXO-IhWXag/edit#heading=h.u1h91ao55ie5)
 
@@ -52,7 +52,7 @@
 * Understand and apply localStorage
 * Get familiar with DevTools (e.g Google Chrome DevTools) for debugging issues
 
-## How to start (step by step)
+## How to start
 
 * Step 1 Clone repository:
     ~~~
