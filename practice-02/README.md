@@ -25,7 +25,7 @@
   + HTML5 and CSS3 are two core technologies for building web pages. HTML5 provides the structure of the page, while CSS3 provides the visual and aural layout for various devices
 * JavaScript
   + JavaScript is an interpreted programming language used on both the client and server side, allowing for the creation of professional animations on web pages. It is integrated and embedded into HTML to support more dynamic websites
-* ES 6
+* ES6
   + ES6, also known as ECMAScript 2015, is the 6th version of the ECMAScript programming language. It was released in 2015 and brought new syntax and features to make code more modern and readable. Some of these features include arrow functions, template strings, class destruction, and modules
 * JSON
   + JSON stands for JavaScript Object Notation, which is a data format that follows a certain rule that most programming languages today can read. JSON is an open standard for data interchange on the web
