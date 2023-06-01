@@ -4,20 +4,15 @@
 
 * From a phone list display products by filters
 * Description: Apply filters to display products that meet specific needs
-
-#### DESIGN
-
-* This is the design of the app: [link](https://drive.google.com/file/d/1XpJmiGw6D0fnW-4didAcc8v_aNNGkc4J/view?usp=drive_link)
+* Design:
+  + This is the design of the app: [link](https://drive.google.com/file/d/1XpJmiGw6D0fnW-4didAcc8v_aNNGkc4J/view?usp=drive_link)
 
 ## TIMELINE
 
 * Start date: 31/05/2023
 * Estimate time: 11 days
 * End date: 10/06/2023 (Except Saturday and Sunday)
-
-#### TIME MANAGER
-
-* Management: [Trello](https://trello.com/b/2cSRPb4Z/javascript-practice-02)
+* Time manager: [Trello](https://trello.com/b/2cSRPb4Z/javascript-practice-02)
 
 ## TECHNICAL
 
@@ -36,13 +31,11 @@
 
 * Displays a list of phones for sale by price filter and manufacturer. Users can also view listings of phones at other price points by desired manufacturers
 * The app has 3 features:
-    - Show all products without any filter first
-    - Includes filters to help customers choose the product they want
-    - List of phone manufacturers to help users choose
-
-#### ANALYSIS
-
-* This is the design analysis for the application : [link](https://docs.google.com/document/d/1MF8DaLU2YsnOjFPMEMo7l8BASeBk6MHj2dXO-IhWXag/edit#heading=h.u1h91ao55ie5)
+  + Show all products without any filter first
+  + Includes filters to help customers choose the product they want
+  + List of phone manufacturers to help users choose
+* Analysis:
+  + This is the design analysis for the application : [link](https://docs.google.com/document/d/1MF8DaLU2YsnOjFPMEMo7l8BASeBk6MHj2dXO-IhWXag/edit#heading=h.u1h91ao55ie5)
 
 ## TARGET
 
@@ -79,4 +72,4 @@
     npm start
     ~~~
 
-* Step 6 Open http://localhost:3000/ in browser
+* Step 6 Open **http://localhost:3000** in browser
