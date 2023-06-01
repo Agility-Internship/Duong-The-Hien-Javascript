@@ -8,7 +8,6 @@
 #### DESIGN
 
 * This is the design of the app: [link](https://drive.google.com/file/d/1XpJmiGw6D0fnW-4didAcc8v_aNNGkc4J/view?usp=drive_link)
----
 
 ## TIMELINE
 
@@ -19,7 +18,6 @@
 ####  TIME MANAGER
 
 * Management: [Trello](https://trello.com/b/2cSRPb4Z/javascript-practice-02)
----
 
 ## TECHNICAL
 
@@ -33,7 +31,6 @@
   + JSON stands for JavaScript Object Notation, which is a data format that follows a certain rule that most programming languages today can read. JSON is an open standard for data interchange on the web
 * localStorage
   + The localStorage object is a property of the window interface that allows you to save key/value pairs in the browser. The data stored has no expiration date and is not deleted when the browser is closed, making it available for future sessions
----
 
 ## REQUIREMENT
 
@@ -46,7 +43,6 @@
 #### ANALYSIS :
 
 * This is the design analysis for the application : [link](https://docs.google.com/document/d/1MF8DaLU2YsnOjFPMEMo7l8BASeBk6MHj2dXO-IhWXag/edit#heading=h.u1h91ao55ie5)
----
 
 ## TARGET
 
@@ -55,7 +51,6 @@
 * Learn and apply some JS built-in helpers like map, reduce , find , sort, filter
 * Understand and apply localStorage
 * Get familiar with DevTools (e.g Google Chrome DevTools) for debugging issues
----
 
 ## How to start (step by step)
 
