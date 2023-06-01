@@ -45,7 +45,7 @@
 * Understand and apply localStorage
 * Get familiar with DevTools (e.g Google Chrome DevTools) for debugging issues
 
-## How to start
+## HOW TO START
 
 * Step 1 Clone repository:
     ~~~
