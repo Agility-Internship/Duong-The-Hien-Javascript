@@ -72,4 +72,4 @@
     npm start
     ~~~
 
-* Step 6 Open **  http://localhost:3000** in browser
+* Step 6 Open **http://localhost:3000** in browser
