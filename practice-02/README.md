@@ -35,7 +35,7 @@
   + Includes filters to help customers choose the product they want
   + List of phone manufacturers to help users choose
 * Analysis:
-  + This is the design analysis for the application : [link](https://docs.google.com/document/d/1MF8DaLU2YsnOjFPMEMo7l8BASeBk6MHj2dXO-IhWXag/edit#heading=h.u1h91ao55ie5)
+  + This is the design analysis for the application: [link](https://docs.google.com/document/d/1MF8DaLU2YsnOjFPMEMo7l8BASeBk6MHj2dXO-IhWXag/edit#heading=h.u1h91ao55ie5)
 
 ## TARGET
 
