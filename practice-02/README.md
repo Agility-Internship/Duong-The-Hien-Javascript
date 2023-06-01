@@ -15,7 +15,7 @@
 * Estimate time: 11 days
 * End date: 10/06/2023 (Except Saturday and Sunday)
 
-####  TIME MANAGER
+#### TIME MANAGER
 
 * Management: [Trello](https://trello.com/b/2cSRPb4Z/javascript-practice-02)
 
