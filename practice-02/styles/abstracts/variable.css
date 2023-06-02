@@ -1,0 +1,41 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
+:root {
+  /* --------------font-------------------- */
+  --font-family: "Satoshi", sans-serif;
+
+  /* -------------color-------------------- */
+  /* https://colornamer.robertcooper.me/  */
+  --primary: #e83a45;
+  --secondary: #2f80ed;
+  --light: #f4f4f4;
+  --white: #eaeaea;
+  --gray-500: #333;
+  --gray-300: #dcdcdc;
+
+  /* -------------font-weight-------------- */
+
+  --font-weight-small: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* -------------font-size---------------- */
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-medium: 1.125rem;
+  --font-size-x-medium: 1.25rem;
+  --font-size-xx-medium: 1.5rem;
+  --font-size-large: 2rem;
+  --font-size-x-large: 2.125rem;
+  --font-size-xx-large: 2.5rem;
+  --font-size-xxx-large: 4rem;
+
+  /* -------------line-height-------------- */
+  --line-height-small: 1.1875rem;
+  --line-height-medium: 1.5rem;
+  --line-height-x-medium: 1.875rem;
+  --line-height-large: 2.125rem;
+  --line-height-x-large: 2.875rem;
+  --line-height-xx-large: 3.125rem;
+  --line-height-xxx-large: 4.625rem;
+}
