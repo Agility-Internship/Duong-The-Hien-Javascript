@@ -95,14 +95,14 @@ body {
   margin: 10px 0;
 }
 
-.listproduct {
+.list-product {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   border-left: 1px solid var(--light);
   border-top: 1px solid var(--light);
 }
 
-.listproduct .item {
+.list-product .item {
   border-bottom: 1px solid var(--light);
   border-right: 1px solid var(--light);
   padding: 10px 15px 20px;
@@ -129,39 +129,24 @@ body {
   color: var(--gray-500);
 }
 
-.listproduct .item-img {
-  margin-top: 10px;
-}
-
-.listproduct .item-img {
+.list-product .item-img {
   position: relative;
+  margin-top: 10px;
   margin-bottom: 10px;
+
   display: block;
   overflow: hidden;
-}
-
-.listproduct .item-img {
   height: 225px;
   line-height: 225px;
 }
 
-.listproduct .item .item-img .thumb {
-  margin-top: 8px;
-}
-
-.listproduct .item-img .thumb {
+.list-product .item-img .thumb {
   margin-bottom: 0;
   margin-top: 8px;
-}
-
-.listproduct .thumb {
   max-width: 100%;
 }
 
-.listproduct .item-name {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+.list-product .item-name {
   font-size: 14px;
   line-height: 20px;
 
@@ -170,17 +155,12 @@ body {
   margin-bottom: 5px;
 }
 
-.listproduct .item-compare {
+.list-product .item-compare {
   font-size: 0;
   margin-bottom: 5px;
 }
 
-.listproduct .item-compare .text {
-  border: 1px solid var(--white);
-  background: var(--white);
-}
-
-.listproduct .item-compare .text {
+.list-product .item-compare .text {
   border: 1px solid var(--white);
   border-radius: 2px;
   color: var(--gray-500);
@@ -192,7 +172,7 @@ body {
   white-space: nowrap;
 }
 
-.listproduct .price {
+.list-product .price {
   color: var(--primary);
   display: block;
   font-size: 16px;
