@@ -175,7 +175,7 @@ body {
   margin-bottom: 5px;
 }
 
-.listproduct .item-compare.gray-bg .text {
+.listproduct .item-compare .text {
   border: 1px solid var(--white);
   background: var(--white);
 }
@@ -199,5 +199,4 @@ body {
   font-weight: bold;
   line-height: 18px;
   margin-bottom: 5px;
-  text-decoration: none;
 }
