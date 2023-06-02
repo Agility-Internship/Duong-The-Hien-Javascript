@@ -1,4 +1,7 @@
 :root {
+  /* --------------font-------------------- */
+  --font-family: 'Arial', sans-serif;
+
   /* -------------color-------------------- */
   /* https://colornamer.robertcooper.me/  */
   --primary: #e83a45;
