@@ -1,7 +1,7 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
 const listProduct = document.querySelector('.list-product');
-const products = document.getElementsByClassName("products-box");
+
 for (var i = 0; i < myJson.length; i++) {
     var images = myJson[i].images,
         name = myJson[i].name,
@@ -13,6 +13,7 @@ for (var i = 0; i < myJson.length; i++) {
     const newItem = document.createElement('li');
     newItem.classList.add('item');
 
+    //create product cards
     newItem.innerHTML = `
           <a href="#" class="main-contain">
             <div class="item-label">
