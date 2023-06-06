@@ -1,20 +1,37 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
-const listProduct = document.querySelector('.list-product');
+// TODO: Using array.reduce here
+myJson.forEach((product) => {
+    const listProduct = document.querySelector('.list-product');
 
-for (let i = 0; i < myJson.length; i++) {
-    let images = myJson[i].images,
-        name = myJson[i].name,
-        version = myJson[i].version,
-        resolution = myJson[i].resolution,
-        price = myJson[i].price,
-        installment = myJson[i].installment;
+    let images = product.images,
+        name = product.name,
+        version = product.version,
+        resolution = product.resolution,
+        price = product.price,
+        installment = product.installment;
 
-    const newItem = document.createElement('li');
+    let newItem = document.createElement('li');
     newItem.classList.add('item');
 
     //create product cards
-    newItem.innerHTML = `
+    newItem.innerHTML = createProductCard(images, name, version, resolution, price, installment);
+
+    listProduct.appendChild(newItem);
+});
+
+/**
+ * This function is used to add new product cards to the list
+ * @param images: the data contains the product's image path
+ * @param name: the data containing the name of the product
+ * @param version: the data contains the version of the product
+ * @param resolution: the data contains information about the product's resolution
+ * @param price: the data contains the cost of the product
+ * @param installment: the data contains information about the product's installment offer
+ * @returns {string} A string containing the structure of HTML tags
+ */
+function createProductCard(images, name, version, resolution, price, installment) {
+    return `
           <a href="#" class="main-contain">
             <div class="item-label">
               <span class="lb-installment text">${installment}</span>
@@ -30,6 +47,4 @@ for (let i = 0; i < myJson.length; i++) {
             <strong class="price">${price}&#273;</strong>
           </a>
         `;
-
-    listProduct.appendChild(newItem);
 }
