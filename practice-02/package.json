@@ -1,6 +1,7 @@
 {
   "name": "practice-two",
   "version": "1.0.0",
+  "type": "module",
   "description": "Creates a phone list, which lists the phones by filter and displays the basic information of each phone.",
   "source": "src/index.html",
   "scripts": {
