@@ -1,24 +1,27 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
-// TODO: Using array.reduce here
-myJson.forEach((product) => {
+function renderProductsCard(products) {
     const listProduct = document.querySelector('.list-product');
 
-    let images = product.images,
-        name = product.name,
-        version = product.version,
-        resolution = product.resolution,
-        price = product.price,
-        installment = product.installment;
+    // TODO: Using array.reduce here
+    products.forEach((product) => {
+        let images = product.images,
+            name = product.name,
+            version = product.version,
+            resolution = product.resolution,
+            price = product.price,
+            installment = product.installment;
 
-    let newItem = document.createElement('li');
-    newItem.classList.add('item');
+        let newItem = document.createElement('li');
+        newItem.classList.add('item');
 
-    //create product cards
-    newItem.innerHTML = createProductCard(images, name, version, resolution, price, installment);
+        // Create product cards
+        newItem.innerHTML = createProductCard(images, name, version, resolution, price, installment);
 
-    listProduct.appendChild(newItem);
-});
+        listProduct.appendChild(newItem);
+    });
+}
+renderProductsCard(myJson);
 
 /**
  * This function is used to add new product cards to the list
