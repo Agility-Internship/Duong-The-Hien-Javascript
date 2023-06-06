@@ -2,8 +2,8 @@ import myJson from '../database/products.json' assert {type: 'json'};
 
 const listProduct = document.querySelector('.list-product');
 
-for (var i = 0; i < myJson.length; i++) {
-    var images = myJson[i].images,
+for (let i = 0; i < myJson.length; i++) {
+    let images = myJson[i].images,
         name = myJson[i].name,
         version = myJson[i].version,
         resolution = myJson[i].resolution,
