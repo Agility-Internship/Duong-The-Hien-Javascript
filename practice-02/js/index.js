@@ -1,5 +1,9 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
+/**
+ * This function is used to display product cards in a list
+ * @param products: data is passed from products.json file with type json
+ */
 function renderProductsCard(products) {
     const listProduct = document.querySelector('.list-product');
 
