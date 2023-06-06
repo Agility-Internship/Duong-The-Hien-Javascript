@@ -32,5 +32,4 @@ for (var i = 0; i < myJson.length; i++) {
         `;
 
     listProduct.appendChild(newItem);
-
 }
