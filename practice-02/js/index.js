@@ -56,134 +56,18 @@ function createProductCard(images, name, version, resolution, price, installment
         `;
 }
 
-// Total filter
 document.addEventListener('DOMContentLoaded', function () {
-    let filterItem = document.querySelector('.filter-total');
-    let filterShow = filterItem.querySelector('.filter-show');
+    const filters = document.querySelectorAll('.filter-item');
 
-    filterItem.addEventListener('mouseenter', function () {
-        filterShow.style.display = 'block';
-        filterShow.innerHTML = `
-        <div class="show-total-main">
-            <div class="show-total-item clearfix">
-                <div class="show-total-title">Manufacture</div>
-                <div class="filter-list ">
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/Masstel42-b_0.png" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg" width="30" class="logo" />
-                    </a>
-                    <a href="#" class="logo-item">
-                        <img src="//cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg" width="30" class="logo" />
-                    </a>
-                </div>
-            </div>
-            <div class="show-total-item">
-                <div class="show-total-title">Price</div>
-                <div class="filter-list ">
-                    <a href="#" class="logo-item"> 2 - 4 million </a>
-                    <a href="#" class="logo-item"> 4 - 8 million </a>
-                    <a href="#" class="logo-item"> 8 - 15 million </a>
-                    <a href="#" class="logo-item"> over 15 million </a>
-                </div>
-            </div>
-         </div>
-      `
-    });
+    filters.forEach(function (filter) {
+        const filterShow = filter.querySelector('.filter-show');
 
-    filterItem.addEventListener('mouseleave', function () {
-        filterShow.style.display = 'none';
-    });
-});
+        filter.addEventListener('mouseenter', function () {
+            filterShow.style.display = 'block';
+        });
 
-// Manufacture filter
-document.addEventListener('DOMContentLoaded', function () {
-    let filterItem = document.querySelector('.manufacture');
-    let filterShow = filterItem.querySelector('.filter-show');
-
-    filterItem.addEventListener('mouseenter', function () {
-        filterShow.style.display = 'block';
-        filterShow.innerHTML = `
-        <div class="filter-list ">
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/Masstel42-b_0.png" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg" width="30" class="logo" />
-          </a>
-          <a href="#" class="logo-item">
-              <img src="//cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg" width="30" class="logo" />
-          </a>
-      </div>
-      `
-    });
-
-    filterItem.addEventListener('mouseleave', function () {
-        filterShow.style.display = 'none';
-    });
-});
-
-// Price filter
-document.addEventListener('DOMContentLoaded', function () {
-    let filterItem = document.querySelector('.price');
-    let filterShow = filterItem.querySelector('.filter-show');
-
-    filterItem.addEventListener('mouseenter', function () {
-        filterShow.style.display = 'block';
-        filterShow.innerHTML = `
-        <div class="filter-list ">
-          <a href="#" class="logo-item"> 2 - 4 million </a>
-          <a href="#" class="logo-item"> 4 - 8 million </a>
-          <a href="#" class="logo-item"> 8 - 15 million </a>
-          <a href="#" class="logo-item"> over 15 million </a>
-      </div>
-      `
-    });
-
-    filterItem.addEventListener('mouseleave', function () {
-        filterShow.style.display = 'none';
+        filter.addEventListener('mouseleave', function () {
+            filterShow.style.display = 'none';
+        });
     });
 });
