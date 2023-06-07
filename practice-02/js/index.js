@@ -1,5 +1,15 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
+
+function filterAndSaveProductsByName(products, name) {
+    const filteredProducts = products.filter(product => product.name.includes(name));
+    localStorage.setItem('filteredProducts', JSON.stringify(filteredProducts));
+}
+filterAndSaveProductsByName(myJson, "OPPO")
+
+const filteredProducts = JSON.parse(localStorage.getItem('filteredProducts'));
+
+console.log(filteredProducts)
 /**
  * This function is used to display product cards in a list
  * @param products: data is passed from products.json file with type json
@@ -25,7 +35,7 @@ function renderProductsCard(products) {
         listProduct.appendChild(newItem);
     });
 }
-renderProductsCard(myJson);
+renderProductsCard(filteredProducts);
 
 /**
  * This function is used to add new product cards to the list
