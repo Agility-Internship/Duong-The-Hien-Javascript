@@ -55,3 +55,19 @@ function createProductCard(images, name, version, resolution, price, installment
           </a>
         `;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const filters = document.querySelectorAll('.filter-item');
+
+    filters.forEach(function (filter) {
+        const filterShow = filter.querySelector('.filter-show');
+
+        filter.addEventListener('mouseenter', function () {
+            filterShow.style.display = 'block';
+        });
+
+        filter.addEventListener('mouseleave', function () {
+            filterShow.style.display = 'none';
+        });
+    });
+});
