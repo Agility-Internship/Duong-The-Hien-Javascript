@@ -1,5 +1,6 @@
 @import './abstracts/variable.css';
 @import './base/reset.css';
+@import './component/button.css';
 
 * {
   margin: 0;
@@ -266,7 +267,7 @@ body {
 }
 
 .show-total .show-total-item {
-  float: left;
+  display: flex;
   width: 100%;
   clear: both;
   padding: 10px 20px;
