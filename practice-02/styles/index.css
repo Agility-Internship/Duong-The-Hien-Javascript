@@ -14,6 +14,10 @@ body {
 
 .container {
   padding: 10px;
+  margin: auto;
+  max-width: 1300px;
+  width: 100%;
+  min-width: 980px;
 }
 
 .block-filter-main {
@@ -39,7 +43,9 @@ body {
   cursor: pointer;
   padding: 8px 10px;
 }
-
+.filter-item__title .icon{
+    height: 13px;
+}
 .filter-item__title .title {
   padding-right: 12px;
   position: relative;
@@ -67,6 +73,7 @@ body {
 .logo-item {
   align-items: center;
   border: 1px solid var(--white);
+  cursor: pointer;
   border-radius: 52px;
   color: var(--gray-500);
   display: flex;
@@ -96,6 +103,10 @@ body {
   margin: 10px 0;
 }
 
+.box-sort .sort-total{
+    font-weight: 550;
+}
+
 .list-product {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -112,7 +123,6 @@ body {
 }
 
 .item-label {
-  font-size: 0;
   height: 22px;
 }
 
@@ -126,30 +136,45 @@ body {
 }
 
 .lb-installment {
-  background-color: var(--light);
-  color: var(--gray-500);
+    border-radius: 2px;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+    background: var(--white);
+    margin-right: 4px;
+    padding: 3px;
+}
+.filter-show .arrow-filter::before {
+    content: "";
+    position: absolute;
+    width: 17px;
+    z-index: -2;
+    height: 25px;
+    background: var(--light);
+    transform: rotate(45deg);
+    top: -10px;
+    left: 23px;
+    box-shadow: -2px -2px 5px -4px;
 }
 
 .list-product .item-img {
   position: relative;
-  margin-top: 10px;
   margin-bottom: 10px;
 
   display: block;
   overflow: hidden;
-  height: 225px;
-  line-height: 225px;
 }
 
 .list-product .item-img .thumb {
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: 15px;
   max-width: 100%;
 }
 
 .list-product .item-name {
   font-size: 14px;
   line-height: 20px;
+  font-weight: 500;
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -162,9 +187,9 @@ body {
 }
 
 .list-product .item-compare .text {
-  border: 1px solid var(--white);
   border-radius: 2px;
   color: var(--gray-500);
+  background-color: var(--white);
   display: inline-block;
   font-size: 12px;
   line-height: 12px;
@@ -197,7 +222,7 @@ body {
   width: 100%;
   border: 1px solid var(--gray-300);
   display: none;
-  background-color: #fff;
+  background-color: var(--light);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   max-width: 600px;
@@ -220,7 +245,7 @@ body {
 .filter-show .filter-list .logo-item {
   margin: 0;
   height: 36px;
-  padding: 0;
+  padding: 10px;
   width: auto;
 }
 
@@ -251,8 +276,14 @@ body {
   justify-content: center;
 }
 
+.filter-list.price-list {
+    display: flex;
+    width: 30%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .filter-show.show-total {
-  overflow-y: auto;
   padding: 0;
   width: 900px;
   max-width: 900px;
