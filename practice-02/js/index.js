@@ -1,21 +1,24 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
-
+/**
+ * This function is used to filter products by name and save them on localStorage
+ * @param products: data is passed from products.json file with type json
+ * @param name: the value of the name tag passed in the argument
+ */
 function filterAndSaveProductsByName(products, name) {
     const filteredProducts = products.filter(product => product.name.includes(name));
     localStorage.setItem('filteredProducts', JSON.stringify(filteredProducts));
 }
-filterAndSaveProductsByName(myJson, "OPPO")
 
-const filteredProducts = JSON.parse(localStorage.getItem('filteredProducts'));
-
-console.log(filteredProducts)
 /**
  * This function is used to display product cards in a list
  * @param products: data is passed from products.json file with type json
  */
 function renderProductsCard(products) {
     const listProduct = document.querySelector('.list-product');
+
+    // Clear the existing list
+    listProduct.innerHTML = '';
 
     // TODO: Using array.reduce here
     products.forEach((product) => {
@@ -35,7 +38,6 @@ function renderProductsCard(products) {
         listProduct.appendChild(newItem);
     });
 }
-renderProductsCard(filteredProducts);
 
 /**
  * This function is used to add new product cards to the list
@@ -50,23 +52,24 @@ renderProductsCard(filteredProducts);
 function createProductCard(images, name, version, resolution, price, installment) {
     const lbInstallmentClass = installment ? 'lb-installment text' : '';
     return `
-          <a href="#" class="main-contain">
+        <a href="#" class="main-contain">
             <div class="item-label">
-              <span class="${lbInstallmentClass}">${installment}</span>
+                <span class="${lbInstallmentClass}">${installment}</span>
             </div>
             <div class="item-img">
-              <img class="thumb" src="${images}" alt="${name}" />
+                <img class="thumb" src="${images}" alt="${name}" />
             </div>
             <h3 class="item-name">${name}</h3>
             <div class="item-compare">
-              <span class="text">${version}</span>
-              <span class="text">${resolution}</span>
+                <span class="text">${version}</span>
+                <span class="text">${resolution}</span>
             </div>
             <strong class="price">${price}&#8363;</strong>
-          </a>
-        `;
+        </a>
+    `;
 }
 
+// Show/hide filter options on hover
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter-item');
 
@@ -82,3 +85,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Handle click event on logo buttons
+document.addEventListener('DOMContentLoaded', function () {
+    const logoButtons = document.querySelectorAll('.logo-item');
+
+    // TODO: Using localStorage getItem here
+    logoButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Get the name attribute of the clicked logo button's image
+            const name = button.querySelector('img').getAttribute('name');
+            filterAndSaveProductsByName(myJson, name);
+
+            // Get data in localStorage and render products
+            const filteredProducts = JSON.parse(localStorage.getItem('filteredProducts'));
+            renderProductsCard(filteredProducts);
+        });
+    });
+});
+
+// Initial rendering of products from myJson
+renderProductsCard(myJson);
