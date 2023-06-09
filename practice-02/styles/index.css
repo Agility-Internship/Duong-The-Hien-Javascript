@@ -43,8 +43,8 @@ body {
   cursor: pointer;
   padding: 8px 10px;
 }
-.icon{
-    height: 13px;
+.icon {
+  height: 13px;
 }
 .filter-item__title .title {
   padding-right: 12px;
@@ -103,8 +103,8 @@ body {
   margin: 10px 0;
 }
 
-.box-sort .sort-total{
-    font-weight: 550;
+.box-sort .sort-total {
+  font-weight: 550;
 }
 
 .list-product {
@@ -136,25 +136,25 @@ body {
 }
 
 .lb-installment {
-    border-radius: 2px;
-    font-size: 11px;
-    line-height: 12px;
-    display: inline-block;
-    background: var(--white);
-    margin-right: 4px;
-    padding: 3px;
+  border-radius: 2px;
+  font-size: 11px;
+  line-height: 12px;
+  display: inline-block;
+  background: var(--white);
+  margin-right: 4px;
+  padding: 3px;
 }
 .filter-show .arrow-filter::before {
-    content: "";
-    position: absolute;
-    width: 17px;
-    z-index: -2;
-    height: 25px;
-    background: var(--light);
-    transform: rotate(45deg);
-    top: -10px;
-    left: 23px;
-    box-shadow: -2px -2px 5px -4px;
+  content: '';
+  position: absolute;
+  width: 17px;
+  z-index: -2;
+  height: 25px;
+  background: var(--light);
+  transform: rotate(45deg);
+  top: -10px;
+  left: 23px;
+  box-shadow: -2px -2px 5px -4px;
 }
 
 .list-product .item-img {
@@ -277,10 +277,10 @@ body {
 }
 
 .filter-list.price-list {
-    display: flex;
-    width: 30%;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  width: 30%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .filter-show.show-total {
@@ -297,17 +297,17 @@ body {
   padding: 15px 0 10px;
 }
 .show-total-main .close-popup-total {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: var(--light);
-    border: 1px solid var(--white);
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: var(--light);
+  border: 1px solid var(--white);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .show-total .show-total-item {
