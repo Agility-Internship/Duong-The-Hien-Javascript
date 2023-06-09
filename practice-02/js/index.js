@@ -52,7 +52,7 @@ function renderProductsCard(products) {
 function createProductCard(images, name, version, resolution, price, installment) {
     const lbInstallmentClass = installment ? 'lb-installment text' : '';
     return `
-        <a href="#" class="main-contain">
+          <a href="#" class="main-contain">
             <div class="item-label">
               <span class="${lbInstallmentClass}">${installment}</span>
             </div>
@@ -65,8 +65,8 @@ function createProductCard(images, name, version, resolution, price, installment
               <span class="text">${resolution}</span>
             </div>
             <strong class="price">${price}&#8363;</strong>
-        </a>
-    `;
+          </a>
+        `;
 }
 
 // Show/hide filter options on hover
