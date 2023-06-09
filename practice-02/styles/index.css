@@ -43,7 +43,7 @@ body {
   cursor: pointer;
   padding: 8px 10px;
 }
-.filter-item__title .icon{
+.icon{
     height: 13px;
 }
 .filter-item__title .title {
@@ -296,6 +296,20 @@ body {
   height: auto;
   padding: 15px 0 10px;
 }
+.show-total-main .close-popup-total {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: var(--light);
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .show-total .show-total-item {
   display: flex;
