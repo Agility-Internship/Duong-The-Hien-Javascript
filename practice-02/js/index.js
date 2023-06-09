@@ -54,15 +54,15 @@ function createProductCard(images, name, version, resolution, price, installment
     return `
         <a href="#" class="main-contain">
             <div class="item-label">
-                <span class="${lbInstallmentClass}">${installment}</span>
+              <span class="${lbInstallmentClass}">${installment}</span>
             </div>
             <div class="item-img">
-                <img class="thumb" src="${images}" alt="${name}" />
+              <img class="thumb" src="${images}" alt="${name}" />
             </div>
             <h3 class="item-name">${name}</h3>
             <div class="item-compare">
-                <span class="text">${version}</span>
-                <span class="text">${resolution}</span>
+              <span class="text">${version}</span>
+              <span class="text">${resolution}</span>
             </div>
             <strong class="price">${price}&#8363;</strong>
         </a>
