@@ -48,10 +48,11 @@ renderProductsCard(filteredProducts);
  * @returns {string} A string containing the structure of HTML tags
  */
 function createProductCard(images, name, version, resolution, price, installment) {
+    const lbInstallmentClass = installment ? 'lb-installment text' : '';
     return `
           <a href="#" class="main-contain">
             <div class="item-label">
-              <span class="lb-installment text">${installment}</span>
+              <span class="${lbInstallmentClass}">${installment}</span>
             </div>
             <div class="item-img">
               <img class="thumb" src="${images}" alt="${name}" />
@@ -61,7 +62,7 @@ function createProductCard(images, name, version, resolution, price, installment
               <span class="text">${version}</span>
               <span class="text">${resolution}</span>
             </div>
-            <strong class="price">${price}&#273;</strong>
+            <strong class="price">${price}&#8363;</strong>
           </a>
         `;
 }
