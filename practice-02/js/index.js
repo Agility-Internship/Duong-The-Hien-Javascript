@@ -7,7 +7,6 @@ import myJson from '../database/products.json' assert {type: 'json'};
  * @returns {Array} An array of filtered products
  */
 function filterProductsByName(products, name) {
-    console.log(name)
     return products.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
 }
 
@@ -94,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const filteredProducts = filterProductsByName(myJson, nameProduct);
             renderProductsCard(filteredProducts);
 
-            console.log(logoButtons)
             // Remove the 'selected' class from all logo buttons
             logoButtons.forEach(function (logoButton) {
                 logoButton.classList.remove('selected');
