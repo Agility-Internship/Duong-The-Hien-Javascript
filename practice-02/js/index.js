@@ -1,11 +1,24 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
 /**
+ * This function is used to filter products by name
+ * @param products: data is passed from products.json file with type json
+ * @param name: the value of the name tag passed in the argument
+ * @returns {Array} An array of filtered products
+ */
+function filterProductsByName(products, name) {
+    return products.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
+}
+
+/**
  * This function is used to display product cards in a list
  * @param products: data is passed from products.json file with type json
  */
 function renderProductsCard(products) {
     const listProduct = document.querySelector('.list-product');
+
+    // Clear the existing list
+    listProduct.innerHTML = '';
 
     // TODO: Using array.reduce here
     products.forEach((product) => {
@@ -25,7 +38,6 @@ function renderProductsCard(products) {
         listProduct.appendChild(newItem);
     });
 }
-renderProductsCard(myJson);
 
 /**
  * This function is used to add new product cards to the list
@@ -59,7 +71,10 @@ function createProductCard(images, name, version, resolution, price, installment
 
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter-item');
+    const logoButtons = document.querySelectorAll('.logo-item');
+    let selectedBrands = []; // Array to store selected brands
 
+    // Show/hide filter options on hover
     filters.forEach(function (filter) {
         const filterShow = filter.querySelector('.filter-show');
 
@@ -71,4 +86,27 @@ document.addEventListener('DOMContentLoaded', function () {
             filterShow.style.display = 'none';
         });
     });
+
+    // Handle click event on logo buttons
+    logoButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            const nameProduct =  event.target.name;
+            const filteredProducts = filterProductsByName(myJson, nameProduct);
+
+            if (!button.classList.contains('selected')) {
+                // Add 'selected' class and add products to selectedBrands
+                button.classList.add('selected');
+                selectedBrands.push(...filteredProducts);
+            } else {
+                // Remove 'selected' class and remove products from selectedBrands
+                button.classList.remove('selected');
+                selectedBrands = selectedBrands.filter(product => !filteredProducts.includes(product));
+            }
+
+            return selectedBrands.length > 0 ? renderProductsCard(selectedBrands) : renderProductsCard(myJson);
+        });
+    });
 });
+
+// Initial rendering of products from myJson
+renderProductsCard(myJson);
