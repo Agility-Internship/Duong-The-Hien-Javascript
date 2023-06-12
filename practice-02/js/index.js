@@ -72,7 +72,7 @@ function createProductCard(images, name, version, resolution, price, installment
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter-item');
     const logoButtons = document.querySelectorAll('.logo-item');
-    let selectedProducts = []; // Array to store selected products
+    let selectedBrands = []; // Array to store selected brands
 
     // Show/hide filter options on hover
     filters.forEach(function (filter) {
@@ -94,16 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const filteredProducts = filterProductsByName(myJson, nameProduct);
 
             if (!button.classList.contains('selected')) {
-                // Add 'selected' class and add products to selectedProducts
+                // Add 'selected' class and add products to selectedBrands
                 button.classList.add('selected');
-                selectedProducts.push(...filteredProducts);
+                selectedBrands.push(...filteredProducts);
             } else {
-                // Remove 'selected' class and remove products from selectedProducts
+                // Remove 'selected' class and remove products from selectedBrands
                 button.classList.remove('selected');
-                selectedProducts = selectedProducts.filter(product => !filteredProducts.includes(product));
+                selectedBrands = selectedBrands.filter(product => !filteredProducts.includes(product));
             }
 
-            return selectedProducts.length > 0 ? renderProductsCard(selectedProducts) : renderProductsCard(myJson);
+            return selectedBrands.length > 0 ? renderProductsCard(selectedBrands) : renderProductsCard(myJson);
         });
     });
 });
