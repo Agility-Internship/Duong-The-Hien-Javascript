@@ -72,6 +72,7 @@ function createProductCard(images, name, version, resolution, price, installment
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter-item');
     const logoButtons = document.querySelectorAll('.logo-item');
+    let selectedProducts = []; // Array to store selected products
 
     // Show/hide filter options on hover
     filters.forEach(function (filter) {
@@ -91,15 +92,17 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const nameProduct = button.querySelector('img').getAttribute('name');
             const filteredProducts = filterProductsByName(myJson, nameProduct);
-            renderProductsCard(filteredProducts);
 
-            // Remove the 'selected' class from all logo buttons
-            logoButtons.forEach(function (logoButton) {
-                logoButton.classList.remove('selected');
-            });
+            if (button.classList.contains('selected')) {
+                // Deselect the product
+                button.classList.remove('selected');
+            } else {
+                // Select the product
+                selectedProducts.push(...filteredProducts);
+                button.classList.add('selected');
+            }
 
-            // Add the 'selected' class to the clicked button
-            button.classList.add('selected');
+            renderProductsCard(selectedProducts);
         });
     });
 });
