@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (button.classList.contains('selected')) {
                 // Deselect the product
+                selectedProducts = selectedProducts.filter(product => product.name !== nameProduct);
                 button.classList.remove('selected');
             } else {
                 // Select the product
@@ -109,3 +110,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Initial rendering of products from myJson
 renderProductsCard(myJson);
+
