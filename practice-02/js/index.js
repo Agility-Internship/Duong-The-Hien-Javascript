@@ -1,13 +1,14 @@
 import myJson from '../database/products.json' assert {type: 'json'};
 
 /**
- * This function is used to filter products by name and save them on localStorage
+ * This function is used to filter products by name
  * @param products: data is passed from products.json file with type json
  * @param name: the value of the name tag passed in the argument
+ * @returns {Array} An array of filtered products
  */
-function filterAndSaveProductsByName(products, name) {
-    const filteredProducts = products.filter(product => product.name.includes(name));
-    localStorage.setItem('filteredProducts', JSON.stringify(filteredProducts));
+function filterProductsByName(products, name) {
+    console.log(name)
+    return products.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
 }
 
 /**
@@ -69,10 +70,11 @@ function createProductCard(images, name, version, resolution, price, installment
         `;
 }
 
-// Show/hide filter options on hover
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter-item');
+    const logoButtons = document.querySelectorAll('.logo-item');
 
+    // Show/hide filter options on hover
     filters.forEach(function (filter) {
         const filterShow = filter.querySelector('.filter-show');
 
@@ -84,22 +86,22 @@ document.addEventListener('DOMContentLoaded', function () {
             filterShow.style.display = 'none';
         });
     });
-});
 
-// Handle click event on logo buttons
-document.addEventListener('DOMContentLoaded', function () {
-    const logoButtons = document.querySelectorAll('.logo-item');
-
-    // TODO: Using localStorage getItem here
+    // Handle click event on logo buttons
     logoButtons.forEach(function (button) {
         button.addEventListener('click', function () {
-            // Get the name attribute of the clicked logo button's image
-            const name = button.querySelector('img').getAttribute('name');
-            filterAndSaveProductsByName(myJson, name);
-
-            // Get data in localStorage and render products
-            const filteredProducts = JSON.parse(localStorage.getItem('filteredProducts'));
+            const nameProduct = button.querySelector('img').getAttribute('name');
+            const filteredProducts = filterProductsByName(myJson, nameProduct);
             renderProductsCard(filteredProducts);
+
+            console.log(logoButtons)
+            // Remove the 'selected' class from all logo buttons
+            logoButtons.forEach(function (logoButton) {
+                logoButton.classList.remove('selected');
+            });
+
+            // Add the 'selected' class to the clicked button
+            button.classList.add('selected');
         });
     });
 });

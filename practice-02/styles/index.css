@@ -338,3 +338,7 @@ body {
   height: 1px;
   background: var(--gray-300);
 }
+
+.logo-item.selected {
+    border: 1px solid var(--secondary);
+}
