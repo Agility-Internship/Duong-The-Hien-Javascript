@@ -89,25 +89,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Handle click event on logo buttons
     logoButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            const nameProduct = button.querySelector('img').getAttribute('name');
+        button.addEventListener('click', function (event) {
+            const nameProduct =  event.target.name;
             const filteredProducts = filterProductsByName(myJson, nameProduct);
-
-            if (button.classList.contains('selected')) {
-                // Deselect the product
-                selectedProducts = selectedProducts.filter(product => product.name !== nameProduct);
-                button.classList.remove('selected');
-            } else {
-                // Select the product
-                selectedProducts.push(...filteredProducts);
+            console.log(filteredProducts)
+            if (!button.classList.contains('selected')) {
+                // Add 'selected' class and add products to selectedProducts
                 button.classList.add('selected');
+                selectedProducts.push(...filteredProducts);
+            } else {
+                // Remove 'selected' class and remove products from selectedProducts
+                button.classList.remove('selected');
+                selectedProducts = selectedProducts.filter(product => !filteredProducts.includes(product));
             }
+            return selectedProducts.length > 0 ? renderProductsCard(selectedProducts) : renderProductsCard(myJson);
 
-            renderProductsCard(selectedProducts);
         });
     });
 });
 
 // Initial rendering of products from myJson
 renderProductsCard(myJson);
-
