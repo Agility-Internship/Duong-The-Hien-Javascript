@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function (event) {
             const nameProduct =  event.target.name;
             const filteredProducts = filterProductsByName(myJson, nameProduct);
-            console.log(filteredProducts)
+
             if (!button.classList.contains('selected')) {
                 // Add 'selected' class and add products to selectedProducts
                 button.classList.add('selected');
@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 button.classList.remove('selected');
                 selectedProducts = selectedProducts.filter(product => !filteredProducts.includes(product));
             }
-            return selectedProducts.length > 0 ? renderProductsCard(selectedProducts) : renderProductsCard(myJson);
 
+            return selectedProducts.length > 0 ? renderProductsCard(selectedProducts) : renderProductsCard(myJson);
         });
     });
 });
