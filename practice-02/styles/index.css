@@ -242,14 +242,14 @@ body {
   overflow-y: auto;
 }
 
-.filter-show .filter-list .logo-item {
+.filter-show .filter-list .logo-item,.price-item  {
   margin: 0;
   height: 36px;
   padding: 10px;
   width: auto;
 }
 
-.filter-list .logo-item {
+.filter-list .logo-item,.price-item  {
   align-items: center;
   border: 1px solid var(--gray-300);
   border-radius: 4px;
@@ -266,6 +266,9 @@ body {
 .filter-list .logo-item:hover {
   border: 1px solid var(--secondary);
 }
+.filter-list .price-item:hover {
+    border: 1px solid var(--secondary);
+  }
 
 .filter-list .logo-item .logo {
   display: flex;
@@ -339,6 +342,6 @@ body {
   background: var(--gray-300);
 }
 
-.logo-item.selected {
+.selected {
     border: 1px solid var(--secondary);
 }

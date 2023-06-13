@@ -11,6 +11,30 @@ function filterProductsByName(products, name) {
 }
 
 /**
+ * This function is used to convert price string to a numeric value
+ * @param price: the price string to convert
+ * @returns {number} The numeric value of the price
+ */
+function convertPriceToNumber(price) {
+    const numericString = price.replace(/[.]+/g, "");
+    return parseInt(numericString);
+}
+
+/**
+ * This function is used to filter products by price
+ * @param products: data is passed from products.json file with type json
+ * @param minPrice: the minimum price to filter
+ * @param maxPrice: the maximum price to filter
+ * @returns {Array} An array of filtered products
+ */
+function filterProductsByPrice(products, minPrice, maxPrice) {
+    return products.filter(product => {
+        const price = convertPriceToNumber(product.price);
+        return price >= minPrice && (maxPrice === undefined || price <= maxPrice);
+    });
+}
+
+/**
  * This function is used to display product cards in a list
  * @param products: data is passed from products.json file with type json
  */
@@ -72,7 +96,10 @@ function createProductCard(images, name, version, resolution, price, installment
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter-item');
     const logoButtons = document.querySelectorAll('.logo-item');
+    const priceButtons = document.querySelectorAll('.price-item');
+
     let selectedBrands = []; // Array to store selected brands
+    let selectedPrices = []; // Array to store price
 
     // Show/hide filter options on hover
     filters.forEach(function (filter) {
@@ -90,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle click event on logo buttons
     logoButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {
-            const nameProduct =  event.target.name;
+            const nameProduct = event.target.name;
             const filteredProducts = filterProductsByName(myJson, nameProduct);
 
             if (!button.classList.contains('selected')) {
@@ -104,6 +131,25 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             return selectedBrands.length > 0 ? renderProductsCard(selectedBrands) : renderProductsCard(myJson);
+        });
+    });
+    priceButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            const minPrice = parseFloat(event.target.getAttribute('data-min'));
+            const maxPrice = parseFloat(event.target.getAttribute('data-max'));
+            const filteredProducts = filterProductsByPrice(myJson, minPrice, maxPrice)
+
+            if (!button.classList.contains('selected')) {
+                // Add 'selected' class and add products to selectedPrices
+                button.classList.add('selected');
+                selectedPrices.push(...filteredProducts);
+            } else {
+                // Remove 'selected' class and remove products from selectedPrices
+                button.classList.remove('selected');
+                selectedPrices = selectedPrices.filter(product => !filteredProducts.includes(product));
+            }
+
+            return renderProductsCard(selectedPrices);
         });
     });
 });
