@@ -9,7 +9,9 @@ import LIST_PRODUCTS from '../database/products.json' assert {type: 'json'};
 function filterProductsByName(products, selectedBrands) {
     const filteredResults = [];
 
+    console.log(selectedBrands)
     selectedBrands.forEach(brand => {
+        console.log(brand)
         const filteredProducts = products.filter(product => product.name.toLowerCase().includes(brand.toLowerCase()));
         filteredResults.unshift(...filteredProducts);
     });
@@ -145,17 +147,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Show/hide filter options on mouse hover
     filters.forEach(function (filter) {
         const filterShow = filter.querySelector('.filter-show');
-        const filterTitle = filter.querySelector('.filter-item__title')
 
         filter.addEventListener('mouseenter', function () {
-          filterShow.style.display = 'block';
-          filterTitle.style.border = '1px solid var(--secondary)';
-      });
+            filterShow.style.display = 'block';
+        });
 
-      filter.addEventListener('mouseleave', function () {
-          filterShow.style.display = 'none';
-          filterTitle.style.border = '';
-      });
+        filter.addEventListener('mouseleave', function () {
+            filterShow.style.display = 'none';
+        });
     });
 
     // Handle click event on logo buttons
@@ -171,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!sameLogoButton.parentNode.classList.contains('selected')) {
                     // Add 'selected' class and add product to selectedBrands
                     sameLogoButton.parentNode.classList.add('selected');
+                    console.log(sameLogoButton.parentNode)
                     if (isFirstIteration) {
                         selectedBrands.push(nameProduct);
                         isFirstIteration = false;
