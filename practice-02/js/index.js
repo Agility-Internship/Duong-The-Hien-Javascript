@@ -53,6 +53,30 @@ function updateTotalProductsCount(count) {
 }
 
 /**
+ * This function is used to convert price string to a numeric value
+ * @param price: the price string to convert
+ * @returns {number} The numeric value of the price
+ */
+function convertPriceToNumber(price) {
+    const numericString = price.replace(/[.]+/g, "");
+    return parseInt(numericString);
+}
+
+/**
+ * This function is used to filter products by price
+ * @param products: data is passed from products.json file with type json
+ * @param minPrice: the minimum price to filter
+ * @param maxPrice: the maximum price to filter
+ * @returns {Array} An array of filtered products
+ */
+function filterProductsByPrice(products, minPrice, maxPrice) {
+    return products.filter(product => {
+        const price = convertPriceToNumber(product.price);
+        return price >= minPrice && (maxPrice === undefined || price <= maxPrice);
+    });
+}
+
+/**
  * This function is used to display product cards in a list
  * @param products: data is passed from products.json file with type json
  */
@@ -117,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const priceButtons = document.querySelectorAll('.price-item');
 
     let selectedBrands = []; // Array to store selected brands
+
     let displayProducts = LIST_PRODUCTS; // Initialize the displayProducts with the data from LIST_PRODUCTS
 
     // Show/hide filter options on mouse hover
@@ -136,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     logoButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {
             const nameProduct = event.target.name;
+
             const sameLogoButtons = document.querySelectorAll(`.logo-item img[src="${event.target.getAttribute('src')}"]`);
             let isFirstIteration = true; // Variable to check the first iteration
 
@@ -170,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function (event) {
             const minPrice = parseFloat(event.target.getAttribute('data-min'));
             const maxPrice = parseFloat(event.target.getAttribute('data-max'));
+
             const samePriceButtons = document.querySelectorAll(`.price-item[data-min="${minPrice}"][data-max="${maxPrice}"]`);
             let isFirstIteration = true;
 

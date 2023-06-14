@@ -346,8 +346,7 @@ body {
 }
 
 .selected {
-    border: 1px solid var(--primary);
-    transform: scale(0.95);
-    transition: transform 0.2s ease;
-
+  border: 1px solid var(--primary);
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
 }
