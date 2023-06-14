@@ -251,7 +251,7 @@ body {
 
 .filter-list .logo-item,.price-item  {
   align-items: center;
-  border: 1px solid var(--gray-300);
+
   border-radius: 4px;
   color: var(--gray-500);
   display: flex;
@@ -261,6 +261,9 @@ body {
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 8px 9px;
+}
+.price-item{
+  border: 1px solid var(--gray-300);
 }
 
 .filter-list .logo-item:hover {
@@ -343,5 +346,8 @@ body {
 }
 
 .selected {
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--primary);
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+
 }

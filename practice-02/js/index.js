@@ -13,7 +13,7 @@ function filterProductsByName(products, selectedBrands) {
     selectedBrands.forEach(brand => {
         console.log(brand)
         const filteredProducts = products.filter(product => product.name.toLowerCase().includes(brand.toLowerCase()));
-        filteredResults.push(...filteredProducts);
+        filteredResults.unshift(...filteredProducts);
     });
 
     return filteredResults;
@@ -41,6 +41,15 @@ function filterProductsByPrice(products, minPrice, maxPrice) {
         const price = convertPriceToNumber(product.price);
         return price >= minPrice && (maxPrice === undefined || price <= maxPrice);
     });
+}
+
+/**
+ * This function is Updated the total count of displayed products
+ * @param count: the count of displayed products
+ */
+function updateTotalProductsCount(count) {
+    const totalProductsCount = document.querySelector('.sort-total .total-result');
+    totalProductsCount.textContent = count;
 }
 
 /**
@@ -108,10 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const priceButtons = document.querySelectorAll('.price-item');
 
     let selectedBrands = []; // Array to store selected brands
-    let selectedPrices = []; // Array to store price
-    let displayProducts = LIST_PRODUCTS ; //
+    let displayProducts = LIST_PRODUCTS; // Initialize the displayProducts with the data from LIST_PRODUCTS
 
-    // Hiển thị/ẩn tùy chọn bộ lọc khi di chuột
+    // Show/hide filter options on mouse hover
     filters.forEach(function (filter) {
         const filterShow = filter.querySelector('.filter-show');
 
@@ -128,41 +136,67 @@ document.addEventListener('DOMContentLoaded', function () {
     logoButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {
             const nameProduct = event.target.name;
+            const sameLogoButtons = document.querySelectorAll(`.logo-item img[src="${event.target.getAttribute('src')}"]`);
+            let isFirstIteration = true; // Variable to check the first iteration
 
-            if (!button.classList.contains('selected')) {
-                button.classList.add('selected');
-                selectedBrands.push(nameProduct); // Lưu trữ tên sản phẩm vào mảng selectedBrands
-            } else {
-                button.classList.remove('selected');
-                const index = selectedBrands.indexOf(nameProduct);
-                if (index !== -1) {
-                    selectedBrands.splice(index, 1); // Xóa tên sản phẩm khỏi mảng selectedBrands
+            // Synchronization for filters about the same manufacturer
+            sameLogoButtons.forEach(function (sameLogoButton) {
+                if (!sameLogoButton.parentNode.classList.contains('selected')) {
+                    // Add 'selected' class and add product to selectedBrands
+                    sameLogoButton.parentNode.classList.add('selected');
+                    console.log(sameLogoButton.parentNode)
+                    if (isFirstIteration) {
+                        selectedBrands.push(nameProduct);
+                        isFirstIteration = false;
+                    }
+                } else {
+                    // Remove 'selected' class and remove product from selectedBrands
+                    sameLogoButton.parentNode.classList.remove('selected');
+                    const index = selectedBrands.indexOf(nameProduct);
+                    if (index !== -1) {
+                        selectedBrands.splice(index, 1); // Remove product from selectedBrands array
+                    }
                 }
-            }
-            displayProducts = filterProductsByName(displayProducts, selectedBrands);
-            renderProductsCard(displayProducts );
+            });
 
+            displayProducts = filterProductsByName(LIST_PRODUCTS, selectedBrands);
+            renderProductsCard(displayProducts);
+            updateTotalProductsCount(displayProducts.length);
         });
     });
+
+    // Handle click event on price buttons
     priceButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {
             const minPrice = parseFloat(event.target.getAttribute('data-min'));
             const maxPrice = parseFloat(event.target.getAttribute('data-max'));
-            displayProducts = filterProductsByPrice(displayProducts, minPrice, maxPrice)
+            const samePriceButtons = document.querySelectorAll(`.price-item[data-min="${minPrice}"][data-max="${maxPrice}"]`);
+            let isFirstIteration = true;
 
-            if (!button.classList.contains('selected')) {
-                // Add 'selected' class and add products to selectedPrices
-                button.classList.add('selected');
-                // selectedPrices.push(...displayProducts);
-            } else {
-                // Remove 'selected' class and remove products from selectedPrices
-                button.classList.remove('selected');
-                // selectedPrices = selectedPrices.filter(product => !displayProducts.includes(product));
-            }
+            displayProducts = filterProductsByPrice(displayProducts, minPrice, maxPrice);
+
+            // Synchronize for price filters with the same function
+            samePriceButtons.forEach(function (samePriceButton) {
+                if (!samePriceButton.classList.contains('selected')) {
+                    // Add 'selected' class and add product to displayProducts
+                    samePriceButton.classList.add('selected');
+                    if (isFirstIteration) {
+                        isFirstIteration = false;
+                    }
+                } else {
+                    // Remove 'selected' class and remove product from displayProducts
+                    samePriceButton.classList.remove('selected');
+                }
+            });
 
             renderProductsCard(displayProducts);
+            updateTotalProductsCount(displayProducts.length);
         });
     });
+
+    // Initial rendering of products and total count
+    renderProductsCard(displayProducts);
+    updateTotalProductsCount(displayProducts.length);
 
 });
 
