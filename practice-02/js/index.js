@@ -6,8 +6,17 @@ import myJson from '../database/products.json' assert {type: 'json'};
  * @param name: the value of the name tag passed in the argument
  * @returns {Array} An array of filtered products
  */
-function filterProductsByName(products, name) {
-    return products.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
+function filterProductsByName(products, selectedBrands) {
+    const filteredResults = [];
+
+    console.log(selectedBrands)
+    selectedBrands.forEach(brand => {
+        console.log(brand)
+        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(brand.toLowerCase()));
+        filteredResults.push(...filteredProducts);
+    });
+
+    return filteredResults;
 }
 
 /**
@@ -118,19 +127,20 @@ document.addEventListener('DOMContentLoaded', function () {
     logoButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {
             const nameProduct = event.target.name;
-            const filteredProducts = filterProductsByName(myJson, nameProduct);
 
             if (!button.classList.contains('selected')) {
-                // Add 'selected' class and add products to selectedBrands
                 button.classList.add('selected');
-                selectedBrands.push(...filteredProducts);
+                selectedBrands.push(nameProduct); // Lưu trữ tên sản phẩm vào mảng selectedBrands
             } else {
-                // Remove 'selected' class and remove products from selectedBrands
                 button.classList.remove('selected');
-                selectedBrands = selectedBrands.filter(product => !filteredProducts.includes(product));
+                const index = selectedBrands.indexOf(nameProduct);
+                if (index !== -1) {
+                    selectedBrands.splice(index, 1); // Xóa tên sản phẩm khỏi mảng selectedBrands
+                }
             }
+            const filteredProducts = filterProductsByName(myJson, selectedBrands);
+            return filteredProducts.length > 0 ? renderProductsCard(filteredProducts) : renderProductsCard(myJson);
 
-            return selectedBrands.length > 0 ? renderProductsCard(selectedBrands) : renderProductsCard(myJson);
         });
     });
     priceButtons.forEach(function (button) {
