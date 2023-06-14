@@ -198,16 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             renderProductsCard(displayProducts);
-
-            if (displayProducts.length < 1) {
-                renderProductsCard(LIST_PRODUCTS);
-                updateTotalProductsCount(LIST_PRODUCTS.length);
-
-            } else {
-                renderProductsCard(displayProducts);
-                updateTotalProductsCount(displayProducts.length);
-
-            }
+            updateTotalProductsCount(displayProducts.length);
         });
     });
 
