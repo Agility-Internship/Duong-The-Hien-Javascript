@@ -1,4 +1,4 @@
-import myJson from '../database/products.json' assert {type: 'json'};
+import LIST_PRODUCTS from '../database/products.json' assert {type: 'json'};
 
 /**
  * This function is used to filter products by name
@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     selectedBrands.splice(index, 1); // Xóa tên sản phẩm khỏi mảng selectedBrands
                 }
             }
-            const filteredProducts = filterProductsByName(myJson, selectedBrands);
-            return filteredProducts.length > 0 ? renderProductsCard(filteredProducts) : renderProductsCard(myJson);
+            displayProducts = filterProductsByName(displayProducts, selectedBrands);
+            renderProductsCard(displayProducts);
 
         });
     });
@@ -147,22 +147,21 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function (event) {
             const minPrice = parseFloat(event.target.getAttribute('data-min'));
             const maxPrice = parseFloat(event.target.getAttribute('data-max'));
-            const filteredProducts = filterProductsByPrice(myJson, minPrice, maxPrice)
+            displayProducts = filterProductsByPrice(displayProducts, minPrice, maxPrice)
 
             if (!button.classList.contains('selected')) {
                 // Add 'selected' class and add products to selectedPrices
                 button.classList.add('selected');
-                selectedPrices.push(...filteredProducts);
             } else {
                 // Remove 'selected' class and remove products from selectedPrices
                 button.classList.remove('selected');
-                selectedPrices = selectedPrices.filter(product => !filteredProducts.includes(product));
             }
 
-            return renderProductsCard(selectedPrices);
+            renderProductsCard(displayProducts);
         });
     });
+
 });
 
-// Initial rendering of products from myJson
-renderProductsCard(myJson);
+// Initial rendering of products from LIST_PRODUCTS
+renderProductsCard(LIST_PRODUCTS);
