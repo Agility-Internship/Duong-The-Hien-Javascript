@@ -109,8 +109,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let selectedBrands = []; // Array to store selected brands
     let selectedPrices = []; // Array to store price
+    let displayProducts = LIST_PRODUCTS ; //
 
-    // Show/hide filter options on hover
+    // Hiển thị/ẩn tùy chọn bộ lọc khi di chuột
     filters.forEach(function (filter) {
         const filterShow = filter.querySelector('.filter-show');
 
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
             displayProducts = filterProductsByName(displayProducts, selectedBrands);
-            renderProductsCard(displayProducts);
+            renderProductsCard(displayProducts );
 
         });
     });
@@ -152,9 +153,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!button.classList.contains('selected')) {
                 // Add 'selected' class and add products to selectedPrices
                 button.classList.add('selected');
+                // selectedPrices.push(...displayProducts);
             } else {
                 // Remove 'selected' class and remove products from selectedPrices
                 button.classList.remove('selected');
+                // selectedPrices = selectedPrices.filter(product => !displayProducts.includes(product));
             }
 
             renderProductsCard(displayProducts);
