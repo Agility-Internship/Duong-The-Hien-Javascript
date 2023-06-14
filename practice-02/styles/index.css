@@ -43,9 +43,11 @@ body {
   cursor: pointer;
   padding: 8px 10px;
 }
+
 .icon {
   height: 13px;
 }
+
 .filter-item__title .title {
   padding-right: 12px;
   position: relative;
@@ -110,16 +112,27 @@ body {
 .list-product {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-left: 1px solid var(--light);
-  border-top: 1px solid var(--light);
+  border: 1px solid var(--white);
 }
 
 .list-product .item {
-  border-bottom: 1px solid var(--light);
-  border-right: 1px solid var(--light);
+  border-bottom: 1px solid var(--white);
+  border-right: 1px solid var(--white);
   padding: 10px 15px 20px;
   overflow: hidden;
   display: block;
+}
+
+.list-product .item:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .12)
+}
+
+.list-product .item-img:hover .thumb {
+  transform: translate(0px, -10px);
+}
+
+.list-product .item:hover .item-name {
+  color: var(--secondary);
 }
 
 .item-label {
@@ -144,6 +157,7 @@ body {
   margin-right: 4px;
   padding: 3px;
 }
+
 .filter-show .arrow-filter::before {
   content: '';
   position: absolute;
@@ -242,14 +256,16 @@ body {
   overflow-y: auto;
 }
 
-.filter-show .filter-list .logo-item,.price-item  {
+.filter-show .filter-list .logo-item,
+.price-item {
   margin: 0;
   height: 36px;
   padding: 10px;
   width: auto;
 }
 
-.filter-list .logo-item,.price-item  {
+.filter-list .logo-item,
+.price-item {
   align-items: center;
 
   border-radius: 4px;
@@ -262,16 +278,18 @@ body {
   margin-right: 10px;
   padding: 8px 9px;
 }
-.price-item{
+
+.price-item {
   border: 1px solid var(--gray-300);
 }
 
 .filter-list .logo-item:hover {
   border: 1px solid var(--secondary);
 }
+
 .filter-list .price-item:hover {
-    border: 1px solid var(--secondary);
-  }
+  border: 1px solid var(--secondary);
+}
 
 .filter-list .logo-item .logo {
   display: flex;
@@ -302,6 +320,7 @@ body {
   height: auto;
   padding: 15px 0 10px;
 }
+
 .show-total-main .close-popup-total {
   position: absolute;
   top: 5px;
@@ -346,8 +365,7 @@ body {
 }
 
 .selected {
-    border: 1px solid var(--primary);
-    transform: scale(0.95);
-    transition: transform 0.2s ease;
-
+  border: 1px solid var(--primary);
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
 }
