@@ -1,4 +1,4 @@
-import LIST_PRODUCTS from '../database/products.json' assert {type: 'json'};
+import LIST_PRODUCTS from '../database/products.json';
 
 /**
  * This function is used to filter products by name
@@ -123,14 +123,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const filterTitle = filter.querySelector('.filter-item__title')
 
         filter.addEventListener('mouseenter', function () {
-          filterShow.style.display = 'block';
-          filterTitle.style.border = '1px solid var(--secondary)';
-      });
+            filterShow.style.display = 'block';
+            filterTitle.style.border = '1px solid var(--secondary)';
+        });
 
-      filter.addEventListener('mouseleave', function () {
-          filterShow.style.display = 'none';
-          filterTitle.style.border = '';
-      });
+        filter.addEventListener('mouseleave', function () {
+            filterShow.style.display = 'none';
+            filterTitle.style.border = '';
+        });
     });
 
     // Handle click event on logo buttons
@@ -160,8 +160,16 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             displayProducts = filterProductsByName(LIST_PRODUCTS, selectedBrands);
-            renderProductsCard(displayProducts);
-            updateTotalProductsCount(displayProducts.length);
+
+            if (displayProducts.length < 1) {
+                renderProductsCard(LIST_PRODUCTS);
+                updateTotalProductsCount(LIST_PRODUCTS.length);
+
+            } else {
+                renderProductsCard(displayProducts);
+                updateTotalProductsCount(displayProducts.length);
+
+            }
         });
     });
 
@@ -190,7 +198,16 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             renderProductsCard(displayProducts);
-            updateTotalProductsCount(displayProducts.length);
+
+            if (displayProducts.length < 1) {
+                renderProductsCard(LIST_PRODUCTS);
+                updateTotalProductsCount(LIST_PRODUCTS.length);
+
+            } else {
+                renderProductsCard(displayProducts);
+                updateTotalProductsCount(displayProducts.length);
+
+            }
         });
     });
 
