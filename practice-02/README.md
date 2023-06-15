@@ -11,7 +11,7 @@
 
 * Start date: 31/05/2023
 * Estimate time: 11 days
-* End date: 10/06/2023 (Except Saturday and Sunday)
+* End date: 12/06/2023 (Except Saturday and Sunday)
 * Time manager: [Trello](https://trello.com/b/2cSRPb4Z/javascript-practice-02)
 
 ## TECHNICAL
