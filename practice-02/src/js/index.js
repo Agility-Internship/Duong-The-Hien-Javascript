@@ -10,7 +10,7 @@ const filterProductsByName = (products, selectedBrands) => {
     const filteredResults = [];
 
     selectedBrands.forEach(brand => {
-        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(brand.toLowerCase()));
+        let filteredProducts = products.filter(product => product.name.toLowerCase().includes(brand.toLowerCase()));
         filteredResults.unshift(...filteredProducts);
     });
 
@@ -36,7 +36,7 @@ function convertPriceToNumber(price) {
  */
 const filterProductsByPrice = (products, minPrice, maxPrice) => {
     return products.filter(product => {
-        const price = convertPriceToNumber(product.price);
+        let price = convertPriceToNumber(product.price);
         return price >= minPrice && (maxPrice === undefined || price <= maxPrice);
     });
 };
@@ -111,8 +111,8 @@ const createProductCard = (product) => {
 
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter__item');
-    const logoButtons = document.querySelectorAll('.filter__item--brand');
-    const priceButtons = document.querySelectorAll('.filter__item--price');
+    const filterBrand = document.querySelectorAll('.filter__item--brand');
+    const filterPrice = document.querySelectorAll('.filter__item--price');
 
     let selectedBrands = []; // Array to store selected brands
     let displayProducts = LIST_PRODUCTS; // Initialize the displayProducts with the data from LIST_PRODUCTS
@@ -136,21 +136,21 @@ document.addEventListener('DOMContentLoaded', function () {
     filterBrand.forEach(button => {
         button.addEventListener('click', (event) => {
             const nameProduct = event.target.name;
-            let sameLogoButtons = document.querySelectorAll(`.filter__item--brand img[src="${event.target.getAttribute('src')}"]`);
+            let sameFilterBrands = document.querySelectorAll(`.filter__item--brand img[src="${event.target.getAttribute('src')}"]`);
             let isFirstIteration = true; // Variable to check the first iteration
 
             // Synchronization for filters about the same manufacturer
-            sameLogoButtons.forEach(function (sameLogoButton) {
-                if (!sameLogoButton.parentNode.classList.contains('selected')) {
+            sameFilterBrands.forEach((sameFilterBrand) => {
+                if (!sameFilterBrand.parentNode.classList.contains('selected')) {
                     // Add 'selected' class and add product to selectedBrands
-                    sameLogoButton.parentNode.classList.add('selected');
+                    sameFilterBrand.parentNode.classList.add('selected');
                     if (isFirstIteration) {
                         selectedBrands.push(nameProduct);
                         isFirstIteration = false;
                     }
                 } else {
                     // Remove 'selected' class and remove product from selectedBrands
-                    sameLogoButton.parentNode.classList.remove('selected');
+                    sameFilterBrand.parentNode.classList.remove('selected');
                     let index = selectedBrands.indexOf(nameProduct);
                     if (index !== -1) {
                         selectedBrands.splice(index, 1); // Remove product from selectedBrands array
@@ -177,22 +177,22 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', (event) => {
             const minPrice = parseFloat(event.target.getAttribute('data-min'));
             const maxPrice = parseFloat(event.target.getAttribute('data-max'));
-            let samePriceButtons = document.querySelectorAll(`.filter__item--price[data-min="${minPrice}"][data-max="${maxPrice}"]`);
+            let sameFilterPrices = document.querySelectorAll(`.filter__item--price[data-min="${minPrice}"][data-max="${maxPrice}"]`);
             let isFirstIteration = true;
 
             displayProducts = filterProductsByPrice(displayProducts, minPrice, maxPrice);
 
             // Synchronize for price filters with the same function
-            samePriceButtons.forEach(function (samePriceButton) {
-                if (!samePriceButton.classList.contains('selected')) {
+            sameFilterPrices.forEach((sameFilterPrice) => {
+                if (!sameFilterPrice.classList.contains('selected')) {
                     // Add 'selected' class and add product to displayProducts
-                    samePriceButton.classList.add('selected');
+                    sameFilterPrice.classList.add('selected');
                     if (isFirstIteration) {
                         isFirstIteration = false;
                     }
                 } else {
                     // Remove 'selected' class and remove product from displayProducts
-                    samePriceButton.classList.remove('selected');
+                    sameFilterPrice.classList.remove('selected');
                 }
             });
 
