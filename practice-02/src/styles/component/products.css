@@ -1,0 +1,95 @@
+/*------------------------------------*\
+  #products
+\*------------------------------------*/
+.products__list .item {
+    border-bottom: 1px solid var(--white);
+    border-right: 1px solid var(--white);
+    padding: 10px 15px 20px;
+    overflow: hidden;
+    display: block;
+}
+
+.products__list .item:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .12)
+}
+
+.card__label {
+    height: 22px;
+}
+
+.card__label .title {
+    border-radius: 2px;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+    margin-right: 4px;
+    padding: 3px;
+}
+
+.products__list .card__img:hover .thumb {
+    transform: translate(0px, -10px);
+}
+
+.products__list .item:hover .card__name {
+    color: var(--secondary);
+}
+
+.card__installment {
+    border-radius: 2px;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+    background: var(--white);
+    margin-right: 4px;
+    padding: 3px;
+}
+
+.products__list .card__img {
+    position: relative;
+    margin-bottom: 10px;
+
+    display: block;
+    overflow: hidden;
+}
+
+.products__list .card__img .thumb {
+    margin-bottom: 0;
+    margin-top: 15px;
+    max-width: 100%;
+}
+
+.products__list .card__name {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.products__list .card__compare {
+    font-size: 0;
+    margin-bottom: 5px;
+}
+
+.products__list .card__compare .text {
+    border-radius: 2px;
+    color: var(--gray-500);
+    background-color: var(--white);
+    display: inline-block;
+    font-size: 12px;
+    line-height: 12px;
+    margin-right: 5px;
+    padding: 4px 5px;
+    white-space: nowrap;
+}
+
+.products__list .price {
+    color: var(--primary);
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    margin-bottom: 5px;
+}

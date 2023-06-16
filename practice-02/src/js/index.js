@@ -46,7 +46,7 @@ function filterProductsByPrice(products, minPrice, maxPrice) {
  * @param count: the count of displayed products
  */
 function updateTotalProductsCount(count) {
-    const totalProductsCount = document.querySelector('.sort-total .total-result');
+    const totalProductsCount = document.querySelector('.category__result--display .category__result--total');
     totalProductsCount.textContent = count;
 }
 
@@ -55,7 +55,7 @@ function updateTotalProductsCount(count) {
  * @param products: data is passed from products.json file with type json
  */
 function renderProductsCard(products) {
-    const listProduct = document.querySelector('.list-product');
+    const listProduct = document.querySelector('.products__list');
 
     // Clear the existing list
     listProduct.innerHTML = '';
@@ -90,37 +90,37 @@ function renderProductsCard(products) {
  * @returns {string} A string containing the structure of HTML tags
  */
 function createProductCard(images, name, version, resolution, price, installment) {
-    const lbInstallmentClass = installment ? 'lb-installment text' : '';
+    let lbInstallmentClass = installment ? 'card__installment text' : '';
     return `
-          <a href="#" class="main-contain">
-            <div class="item-label">
+          <div class="product__card">
+            <div class="card__label">
               <span class="${lbInstallmentClass}">${installment}</span>
             </div>
-            <div class="item-img">
+            <div class="card__img">
               <img class="thumb" src="${images}" alt="${name}" />
             </div>
-            <h3 class="item-name">${name}</h3>
-            <div class="item-compare">
+            <h3 class="card__name">${name}</h3>
+            <div class="card__compare">
               <span class="text">${version}</span>
               <span class="text">${resolution}</span>
             </div>
             <strong class="price">${price}&#8363;</strong>
-          </a>
+          </div>
         `;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const filters = document.querySelectorAll('.filter-item');
-    const logoButtons = document.querySelectorAll('.logo-item');
-    const priceButtons = document.querySelectorAll('.price-item');
+    const filters = document.querySelectorAll('.filter__item');
+    const logoButtons = document.querySelectorAll('.filter__item--brand');
+    const priceButtons = document.querySelectorAll('.filter__item--price');
 
     let selectedBrands = []; // Array to store selected brands
     let displayProducts = LIST_PRODUCTS; // Initialize the displayProducts with the data from LIST_PRODUCTS
 
     // Show/hide filter options on mouse hover
-    filters.forEach(function (filter) {
-        const filterShow = filter.querySelector('.filter-show');
-        const filterTitle = filter.querySelector('.filter-item__title')
+    filters.forEach((filter) => {
+        const filterShow = filter.querySelector('.filter__popover');
+        const filterTitle = filter.querySelector('.filter__item--title');
 
         filter.addEventListener('mouseenter', function () {
             filterShow.style.display = 'block';
@@ -134,10 +134,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Handle click event on logo buttons
-    logoButtons.forEach(function (button) {
+    logoButtons.forEach((button) => {
         button.addEventListener('click', function (event) {
             const nameProduct = event.target.name;
-            const sameLogoButtons = document.querySelectorAll(`.logo-item img[src="${event.target.getAttribute('src')}"]`);
+            let sameLogoButtons = document.querySelectorAll(`.filter__item--brand img[src="${event.target.getAttribute('src')}"]`);
             let isFirstIteration = true; // Variable to check the first iteration
 
             // Synchronization for filters about the same manufacturer
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     // Remove 'selected' class and remove product from selectedBrands
                     sameLogoButton.parentNode.classList.remove('selected');
-                    const index = selectedBrands.indexOf(nameProduct);
+                    let index = selectedBrands.indexOf(nameProduct);
                     if (index !== -1) {
                         selectedBrands.splice(index, 1); // Remove product from selectedBrands array
                     }
@@ -174,11 +174,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Handle click event on price buttons
-    priceButtons.forEach(function (button) {
+    priceButtons.forEach((button) => {
         button.addEventListener('click', function (event) {
             const minPrice = parseFloat(event.target.getAttribute('data-min'));
             const maxPrice = parseFloat(event.target.getAttribute('data-max'));
-            const samePriceButtons = document.querySelectorAll(`.price-item[data-min="${minPrice}"][data-max="${maxPrice}"]`);
+            let samePriceButtons = document.querySelectorAll(`.filter__item--price[data-min="${minPrice}"][data-max="${maxPrice}"]`);
             let isFirstIteration = true;
 
             displayProducts = filterProductsByPrice(displayProducts, minPrice, maxPrice);
