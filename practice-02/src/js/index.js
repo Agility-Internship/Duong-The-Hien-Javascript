@@ -6,7 +6,7 @@ import LIST_PRODUCTS from '../../database/products.json' assert {type: 'json'};
  * @param name: the value of the name tag passed in the argument
  * @returns {Array} An array of filtered products
  */
-function filterProductsByName(products, selectedBrands) {
+const filterProductsByName = (products, selectedBrands) => {
     const filteredResults = [];
 
     selectedBrands.forEach(brand => {
@@ -15,7 +15,7 @@ function filterProductsByName(products, selectedBrands) {
     });
 
     return filteredResults;
-}
+};
 
 /**
  * This function is used to convert price string to a numeric value
@@ -25,7 +25,7 @@ function filterProductsByName(products, selectedBrands) {
 function convertPriceToNumber(price) {
     const numericString = price.replace(/[.]+/g, "");
     return parseInt(numericString);
-}
+};
 
 /**
  * This function is used to filter products by price
@@ -34,27 +34,27 @@ function convertPriceToNumber(price) {
  * @param maxPrice: the maximum price to filter
  * @returns {Array} An array of filtered products
  */
-function filterProductsByPrice(products, minPrice, maxPrice) {
+const filterProductsByPrice = (products, minPrice, maxPrice) => {
     return products.filter(product => {
         const price = convertPriceToNumber(product.price);
         return price >= minPrice && (maxPrice === undefined || price <= maxPrice);
     });
-}
+};
 
 /**
  * This function is Updated the total count of displayed products
  * @param count: the count of displayed products
  */
-function updateTotalProductsCount(count) {
+const updateTotalProductsCount = count => {
     const totalProductsCount = document.querySelector('.category__result--display .category__result--total');
     totalProductsCount.textContent = count;
-}
+};
 
 /**
  * This function is used to display product cards in a list
  * @param products: data is passed from products.json file with type json
  */
-function renderProductsCard(products) {
+const renderProductsCard = products => {
     const listProduct = document.querySelector('.products__list');
 
     // Clear the existing list
@@ -77,7 +77,7 @@ function renderProductsCard(products) {
 
         listProduct.appendChild(newItem);
     });
-}
+};
 
 /**
  * This function is used to add new product cards to the list
@@ -89,25 +89,25 @@ function renderProductsCard(products) {
  * @param installment: the data contains information about the product's installment offer
  * @returns {string} A string containing the structure of HTML tags
  */
-function createProductCard(images, name, version, resolution, price, installment) {
-    let lbInstallmentClass = installment ? 'card__installment text' : '';
+const createProductCard = (product) => {
+    let lbInstallmentClass = product.installment ? 'card__installment text' : '';
     return `
-          <div class="product__card">
-            <div class="card__label">
+      <div class="product__card">
+        <div class="card__label">
               <span class="${lbInstallmentClass}">${installment}</span>
-            </div>
-            <div class="card__img">
+        </div>
+        <div class="card__img">
               <img class="thumb" src="${images}" alt="${name}" />
-            </div>
+        </div>
             <h3 class="card__name">${name}</h3>
-            <div class="card__compare">
+        <div class="card__compare">
               <span class="text">${version}</span>
               <span class="text">${resolution}</span>
-            </div>
+        </div>
             <strong class="price">${price}&#8363;</strong>
-          </div>
-        `;
-}
+      </div>
+    `;
+};
 
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.filter__item');
@@ -118,24 +118,23 @@ document.addEventListener('DOMContentLoaded', function () {
     let displayProducts = LIST_PRODUCTS; // Initialize the displayProducts with the data from LIST_PRODUCTS
 
     // Show/hide filter options on mouse hover
-    filters.forEach((filter) => {
+    filters.forEach(filter => {
         const filterShow = filter.querySelector('.filter__popover');
         const filterTitle = filter.querySelector('.filter__item--title');
 
-        filter.addEventListener('mouseenter', function () {
+        filter.addEventListener('mouseenter', () => {
             filterShow.style.display = 'block';
             filterTitle.style.border = '1px solid var(--secondary)';
         });
-
-        filter.addEventListener('mouseleave', function () {
+        filter.addEventListener('mouseleave', () => {
             filterShow.style.display = 'none';
             filterTitle.style.border = '';
         });
     });
 
     // Handle click event on logo buttons
-    logoButtons.forEach((button) => {
-        button.addEventListener('click', function (event) {
+    filterBrand.forEach(button => {
+        button.addEventListener('click', (event) => {
             const nameProduct = event.target.name;
             let sameLogoButtons = document.querySelectorAll(`.filter__item--brand img[src="${event.target.getAttribute('src')}"]`);
             let isFirstIteration = true; // Variable to check the first iteration
@@ -174,8 +173,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Handle click event on price buttons
-    priceButtons.forEach((button) => {
-        button.addEventListener('click', function (event) {
+    filterPrice.forEach((button) => {
+        button.addEventListener('click', (event) => {
             const minPrice = parseFloat(event.target.getAttribute('data-min'));
             const maxPrice = parseFloat(event.target.getAttribute('data-max'));
             let samePriceButtons = document.querySelectorAll(`.filter__item--price[data-min="${minPrice}"][data-max="${maxPrice}"]`);
