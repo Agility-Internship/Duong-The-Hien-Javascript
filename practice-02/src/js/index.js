@@ -22,8 +22,8 @@ const filterProductsByName = (products, selectedBrands) => {
  * @param price: the price string to convert
  * @returns {number} The numeric value of the price
  */
-function convertPriceToNumber(price) {
-    const numericString = price.replace(/[.]+/g, "");
+const convertPriceToNumber = price => {
+    let numericString = price.replace(/[.]+/g, "");
     return parseInt(numericString);
 };
 
@@ -57,23 +57,15 @@ const updateTotalProductsCount = count => {
 const renderProductsCard = products => {
     const listProduct = document.querySelector('.products__list');
 
-    // Clear the existing list
     listProduct.innerHTML = '';
 
-    // TODO: Using array.reduce here
-    products.forEach((product) => {
-        let images = product.images,
-            name = product.name,
-            version = product.version,
-            resolution = product.resolution,
-            price = product.price,
-            installment = product.installment;
+    products.forEach(product => {
+        const { images, name, version, resolution, price, installment } = product;
 
-        let newItem = document.createElement('li');
+        const newItem = document.createElement('li');
         newItem.classList.add('item');
 
-        // Create product cards
-        newItem.innerHTML = createProductCard(images, name, version, resolution, price, installment);
+        newItem.innerHTML = createProductCard(product);
 
         listProduct.appendChild(newItem);
     });
@@ -94,17 +86,17 @@ const createProductCard = (product) => {
     return `
       <div class="product__card">
         <div class="card__label">
-              <span class="${lbInstallmentClass}">${installment}</span>
+          <span class="${lbInstallmentClass}">${product.installment}</span>
         </div>
         <div class="card__img">
-              <img class="thumb" src="${images}" alt="${name}" />
+          <img class="thumb" src="${product.images}" alt="${product.name}" />
         </div>
-            <h3 class="card__name">${name}</h3>
+        <h3 class="card__name">${product.name}</h3>
         <div class="card__compare">
-              <span class="text">${version}</span>
-              <span class="text">${resolution}</span>
+          <span class="text">${product.version}</span>
+          <span class="text">${product.resolution}</span>
         </div>
-            <strong class="price">${price}&#8363;</strong>
+        <strong class="price">${product.price}&#8363;</strong>
       </div>
     `;
 };
