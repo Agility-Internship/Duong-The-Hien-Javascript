@@ -1,6 +1,5 @@
 import LIST_PRODUCTS from '../database/products.json' assert {type: 'json'};
 
-
 /**
  * This function is used to filter products by name
  * @param products: data is passed from products.json file with type json
