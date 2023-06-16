@@ -1,4 +1,4 @@
-import LIST_PRODUCTS from '../database/products.json' assert {type: 'json'};
+import LIST_PRODUCTS from '../../database/products.json' assert {type: 'json'};
 
 /**
  * This function is used to filter products by name
