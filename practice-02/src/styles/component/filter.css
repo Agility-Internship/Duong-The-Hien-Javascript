@@ -5,12 +5,16 @@
     position: relative;
 }
 
-.filter__item--title{
+.filter__item--title {
     background-color: var(--light);
     border: 1px solid var(--white);
     border-radius: 4px;
     cursor: pointer;
     padding: 8px 10px;
+}
+
+.filter__item--title .hovered {
+    border: 1px solid var(--secondary);
 }
 
 .filter__item--title .title {

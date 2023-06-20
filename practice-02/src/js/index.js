@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         filter.addEventListener('mouseenter', () => {
             filterShow.style.display = 'block';
-            filterTitle.style.border = '1px solid var(--secondary)';
+            filterTitle.classList.add('hovered');
         });
         filter.addEventListener('mouseleave', () => {
             filterShow.style.display = 'none';
-            filterTitle.style.border = '';
+            filterTitle.classList.remove('hovered');
         });
     });
 
