@@ -102,26 +102,34 @@ const createProductCard = (product) => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    const filters = document.querySelectorAll('.filter__item');
+    const filterContent = document.querySelector('.filter__main');
     const filterBrand = document.querySelectorAll('.filter__item--brand');
     const filterPrice = document.querySelectorAll('.filter__item--price');
 
     let selectedBrands = []; // Array to store selected brands
     let displayProducts = LIST_PRODUCTS; // Initialize the displayProducts with the data from LIST_PRODUCTS
 
-    // Show/hide filter options on mouse hover
-    filters.forEach(filter => {
-        const filterShow = filter.querySelector('.filter__popover');
-        const filterTitle = filter.querySelector('.filter__item--title');
+    filterContent.addEventListener('mouseover', (event) => {
+        const filter = event.target.closest('.filter__item');
+        console.log(filter)
+        if (filter) {
+            const filterShow = filter.querySelector('.filter__popover');
+            const filterTitle = filter.querySelector('.filter__item--title');
 
-        filter.addEventListener('mouseenter', () => {
             filterShow.style.display = 'block';
             filterTitle.classList.add('hovered');
-        });
-        filter.addEventListener('mouseleave', () => {
+        }
+    });
+
+    filterContent.addEventListener('mouseout', (event) => {
+        const filter = event.target.closest('.filter__item');
+        if (filter) {
+            const filterShow = filter.querySelector('.filter__popover');
+            const filterTitle = filter.querySelector('.filter__item--title');
+
             filterShow.style.display = 'none';
             filterTitle.classList.remove('hovered');
-        });
+        }
     });
 
     // Handle click event on logo buttons
