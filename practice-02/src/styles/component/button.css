@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  #button
+\*------------------------------------*/
+.btn {
+    background: var(--light);
+}
+
+.btn--primary {
+    align-items: center;
+    border: 1px solid var(--white);
+    cursor: pointer;
+    border-radius: 52px;
+    color: var(--gray-500);
+    display: flex;
+    font-size: 14px;
+    line-height: 13px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+    min-height: 36px;
+    max-height: 36px;
+    padding: 6px 13px;
+    vertical-align: top;
+}
+
+.btn--primary:hover {
+    border: 1px solid var(--secondary);
+}
+
+.selected {
+    border: 1px solid var(--primary);
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}

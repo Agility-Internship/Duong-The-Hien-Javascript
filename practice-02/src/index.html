@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice-02</title>
+
+    <!-- MAIN CSS-->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+</head>
+
+<body>
+    <!-- Main -->
+    <main class="container">
+        <section id="filter">
+            <!-- Filter -->
+            <div class="filter__main">
+                <!-- Filter Total -->
+                <div class="filter__item filter__total">
+                    <div class="filter__item--title">
+                        <img src="../img/Filter-icon.png" class="icon" alt="Icon filter">
+                        Filter
+                    </div>
+                    <div class="filter__popover popover">
+                        <div class="popover__arrow"></div>
+                        <div class="popover__main">
+                            <div class="popover__filter clearfix">
+                                <div class="popover__filter--title">Manufacture</div>
+                                <div class="filter__item--list">
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="30" name="iphone" class="logo" alt="Logo iPhone">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="30" name="samsung" class="logo" alt="Logo Samsung">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg" width="30" name="oppo" class="logo" alt="Logo OPPO">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="30" name="xiaomi" class="logo" alt="Logo Xiaomi">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png" width="30" name="vivo" class="logo" alt="Logo Vivo">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="30" name="realme" class="logo" alt="Logo Realme">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="30" name="nokia" class="logo" alt="Logo Nokia">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/Masstel42-b_0.png" width="30" name="masstel" class="logo" alt="Logo Masstel">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg" width="30" name="itel" class="logo" alt="Logo Itel">
+                                    </button>
+                                    <button class="btn btn--primary filter__item--brand">
+                                        <img src="//cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg" width="30" name="mobell" class="logo" alt="Logo Mobell">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="popover__filter">
+                                <div class="popover__filter--title ">Price</div>
+                                <div class="filter__item--list popover__price">
+                                    <button class="btn filter__item--price" data-min="2000000" data-max="4000000">2-4 million</button>
+                                    <button class="btn filter__item--price" data-min="4000000" data-max="8000000">4-8 million</button>
+                                    <button class="btn filter__item--price" data-min="8000000" data-max="15000000">8-15 million</button>
+                                    <button class="btn filter__item--price" data-min="15000000" data-max="200000000">Over 15 million</button>
+                                </div>
+                            </div>
+                            <button class="popover__button--close btn">
+                                <img src="../img/Close-icon.png" class="icon" alt="Closes icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Filter manufacture -->
+                <div class="filter__item manufacture">
+                    <div class="filter__item--title">
+                        <span class="title">Manufacturer</span>
+                    </div>
+                    <div class="filter__popover">
+                      <div class="popover__arrow"></div>
+                      <div class="filter__item--list">
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="30" name="iphone" class="logo" alt="Logo iPhone">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="30" name="samsung" class="logo" alt="Logo Samsung">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg" width="30" name="oppo" class="logo" alt="Logo OPPO">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="30" name="xiaomi" class="logo" alt="Logo Xiaomi">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png" width="30" name="vivo" class="logo" alt="Logo Vivo">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="30" name="realme" class="logo" alt="Logo Realme">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="30" name="nokia" class="logo" alt="Logo Nokia">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/Masstel42-b_0.png" width="30" name="masstel" class="logo" alt="Logo Masstel">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg" width="30" name="itel" class="logo" alt="Logo Itel">
+                        </button>
+                        <button class="btn btn--primary filter__item--brand">
+                            <img src="//cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg" width="30" name="mobell" class="logo" alt="Logo Mobell">
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                <!-- Filter Price -->
+                <div class="filter__item price">
+                    <div class="filter__item--title">
+                        <span class="title">Price</span>
+                    </div>
+                    <div class="filter__popover">
+                        <div class="popover__arrow"></div>
+                        <div class="filter__item--list">
+                            <button class="btn filter__item--price" data-min="2000000" data-max="4000000">2-4 million</button>
+                            <button class="btn filter__item--price" data-min="4000000" data-max="8000000">4-8 million</button>
+                            <button class="btn filter__item--price" data-min="8000000" data-max="15000000">8-15 million</button>
+                            <button class="btn filter__item--price" data-min="15000000" data-max="200000000">Over 15 million</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Logo -->
+            <div class="box-logo">
+                <div class="list-logo">
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="30" name="iphone" class="logo" alt="Logo iPhone">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="30" name="samsung" class="logo" alt="Logo Samsung">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg" width="30" name="oppo" class="logo" alt="Logo OPPO">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="30" name="xiaomi" class="logo" alt="Logo Xiaomi">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png" width="30" name="vivo" class="logo" alt="Logo Vivo">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="30" name="realme" class="logo" alt="Logo Realme">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="30" name="nokia" class="logo" alt="Logo Nokia">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/Masstel42-b_0.png" width="30" name="masstel" class="logo" alt="Logo Masstel">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg" width="30" name="itel" class="logo" alt="Logo Itel">
+                    </button>
+                    <button class="btn btn--primary filter__item--brand">
+                        <img src="//cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg" width="30" name="mobell" class="logo" alt="Logo Mobell">
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- End main -->
+
+        <!-- CategoryApp -->
+        <section id="category">
+            <!-- Total -->
+            <div class="category__result">
+                <p class="category__result--display">
+                    <b class="category__result--total">1</b>
+                    Phones
+                </p>
+            </div>
+            <!-- Products -->
+            <div class="category__products">
+                <ul class="products__list">
+                </ul>
+            </div>
+        </section>
+        <!-- End category-->
+    </main>
+    <!--Javascript -->
+    <script type="module" src="/src/js/index.js"></script>
+</body>
+
+</html>
